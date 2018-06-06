@@ -9,7 +9,7 @@ Included web apps:
 - [Installation](#installation)
 - [API](#api)
 
-## Suggested Installation Approach
+## Installation
 
 via NPM
 
