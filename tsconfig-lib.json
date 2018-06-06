@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
-        "outDir": "./example/dist/",
-        "sourceMap": true,
+        "outDir": "./",
         "module": "commonjs",
         "noImplicitAny": false,
         "removeComments": true,
         "preserveConstEnums": true,
-        "declaration": false,
+        "declaration": true,
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -21,11 +20,10 @@
         "target": "es5"
     },
     "include": [
-        "example/src/**/*",
         "src/**/*"
     ],
     "exclude": [
-        "**/*.spec.ts",
-        "index.d.ts"
+        "node_modules",
+        "**/*.spec.ts"
     ]
 }

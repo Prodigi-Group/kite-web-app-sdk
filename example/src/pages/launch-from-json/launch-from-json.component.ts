@@ -5,7 +5,7 @@ import {
 
 import {
     KiteWebAppSdk,
-} from './../../../../index';
+} from './../../../../src/index';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,

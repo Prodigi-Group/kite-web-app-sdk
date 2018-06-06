@@ -36,7 +36,12 @@ module.exports = () => {
             },
             {
                 test: /\.ts$/,
-                use: 'ts-loader',
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: 'tsconfig-lib.json',
+                    },
+                },
                 exclude: /\.spec\.ts$/
             },
         ]},

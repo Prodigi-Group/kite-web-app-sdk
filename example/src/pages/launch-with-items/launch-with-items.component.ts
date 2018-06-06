@@ -5,7 +5,7 @@ import {
 
 import {
     KiteWebAppSdk,
-} from './../../../../index';
+} from './../../../../src/index';
 
 const defaultUrl1 = 'https://s3.amazonaws.com/kiteshopify/' +
     'e2f57aa4-10a4-47e4-a87a-99bf8c4730dc_preview.jpeg';
