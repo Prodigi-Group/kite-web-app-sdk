@@ -1,0 +1,6 @@
+*
+
+!.npmignore
+!/dist/**
+!package.json
+!README.md

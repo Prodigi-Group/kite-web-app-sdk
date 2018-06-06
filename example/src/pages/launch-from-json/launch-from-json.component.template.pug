@@ -1,0 +1,29 @@
+doctype html
+
+.c-launch-from-json
+
+    h2.c-title-m.c-launch-from-json__section Launch from JSON
+
+    .c-launch-from-json__section
+        label.c-text-l(
+            for="baseUrl",
+        ) Base Url
+        input(
+            id="baseUrl",
+            type="text",
+            [(ngModel)]="formData.baseUrl",
+        )
+
+    .c-launch-from-json__section
+        label.c-text-l(
+            for="appStateJSONString",
+        ) App state JSON string
+        textarea(
+            id="appStateJSONString",
+            [(ngModel)]="formData.appStateJSONString",
+        )
+
+    .c-launch-from-json__section
+        button.c-btn.c-btn--primary(
+            (click)="launchFromJson()",
+        ) Launch from JSON

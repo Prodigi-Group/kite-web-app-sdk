@@ -1,0 +1,65 @@
+{
+  "name": "@kite-tech/web-app-sdk",
+  "version": "0.0.1-alpha.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:dist": "jest --coverage --runInBand",
+    "example-build:dev": "kite-tech-webpack:dev --partner-name= --project-config-location=kite-webpack-config.js",
+    "build:dist": "webpack --config ./webpack/webpack.config.js",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "start": "npm run example-build:dev",
+    "prepublish": "npm run test && npm run build:dist"
+  },
+  "author": "Chris Berry <chrisberry4545@googlemail.com> (http://chrisbdev.com)",
+  "license": "ISC",
+  "dependencies": {
+    "@kite-tech/checkout-sdk": "2.1.0-alpha.1",
+    "@kite-tech/components": "3.5.0",
+    "angular2-uuid": "^1.1.1"
+  },
+  "devDependencies": {
+    "@angular/animations": "5.2.6",
+    "@angular/common": "5.2.6",
+    "@angular/compiler": "5.2.6",
+    "@angular/core": "5.2.6",
+    "@angular/forms": "5.2.6",
+    "@angular/http": "5.2.6",
+    "@angular/platform-browser": "5.2.6",
+    "@angular/platform-browser-dynamic": "5.2.6",
+    "@angular/router": "5.2.6",
+    "@kite-tech/tslint": "1.0.1",
+    "@kite-tech/webpack": "1.2.0-alpha.2",
+    "@types/jest": "^23.0.0",
+    "@types/node": "10.3.1",
+    "inuitcss": "6.0.0-beta.5",
+    "jest": "^23.1.0",
+    "reflect-metadata": "0.1.12",
+    "rxjs": "5.5.6",
+    "ts-jest": "^22.4.6",
+    "zone.js": "0.8.26"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "transform": {
+      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{ts}",
+      "!**/{vendor,index,*.module,*.data,*.mock,*.interface}.ts",
+      "!src/app/**",
+      "!dist/**/*",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "testRegex": ".*spec.ts$"
+  }
+}

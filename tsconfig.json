@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "outDir": "./",
+        "sourceMap": true,
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "es5",
+            "es2017",
+            "dom"
+        ],
+        "target": "es5"
+    },
+    "include": [
+        "src/**/*",
+        "src/models/index.ts"
+    ],
+    "exclude": [
+        "**/*.spec.ts"
+    ]
+}
