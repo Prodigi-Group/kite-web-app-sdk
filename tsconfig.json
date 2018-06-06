@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
-        "declaration": true,
         "outDir": "./",
-        "sourceMap": true,
         "module": "commonjs",
         "noImplicitAny": false,
         "removeComments": true,
         "preserveConstEnums": true,
+        "declaration": true,
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -21,10 +20,10 @@
         "target": "es5"
     },
     "include": [
-        "src/**/*",
-        "src/models/index.ts"
+        "src/**/*"
     ],
     "exclude": [
+        "node_modules",
         "**/*.spec.ts"
     ]
 }

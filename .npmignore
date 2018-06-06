@@ -1,6 +1,8 @@
 *
 
+!index.js
 !.npmignore
 !/dist/**
 !package.json
 !README.md
+!index.d.ts

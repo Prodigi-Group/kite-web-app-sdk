@@ -14,15 +14,13 @@ module.exports = () => {
             ],
         },
 
-        entry: {
-            app: [
-                appPathGenerator('./index.ts'),
-            ],
-        },
+        entry: appPathGenerator('./src/index.ts'),
 
         output: {
             filename: 'index.js',
             path: appPathGenerator('./dist'),
+            library: 'KiteWebAppSdk',
+            libraryTarget: 'umd'
         },
 
         module: {
@@ -37,18 +35,9 @@ module.exports = () => {
                 include: [paths.dir.appSrc],
             },
             {
-                oneOf: [{
-                    test: /\.ts$/,
-                    use: [
-                        {
-                            loader: 'awesome-typescript-loader',
-                        },
-                        {
-                            loader: 'angular2-template-loader'
-                        }
-                    ],
-                    exclude: /\.spec\.ts$/
-                }],
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /\.spec\.ts$/
             },
         ]},
 
