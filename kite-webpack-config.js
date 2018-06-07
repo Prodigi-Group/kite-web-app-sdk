@@ -8,7 +8,7 @@ module.exports = {
     paths: {
         dir: {
             appBuild: appPathGenerator(`docs/${packageJson.version}`),
-            appPublic: appPathGenerator('example/assets'),
+            appPublic: appPathGenerator('example/index.html'),
             appSrc: appPathGenerator('example/src'),
             appStyles: appPathGenerator('example/styles'),
         },
