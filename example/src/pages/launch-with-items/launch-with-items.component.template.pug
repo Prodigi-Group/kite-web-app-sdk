@@ -1,0 +1,75 @@
+doctype html
+
+.c-launch-with-items
+
+    h2.c-title-m.c-launch-with-items__section Launch with items
+
+    .c-launch-with-items__section
+        label.c-text-l(
+            for="baseUrl",
+        ) Base Url
+        input(
+            id="baseUrl",
+            type="text",
+            [(ngModel)]="formData.baseUrl",
+        )
+
+    .c-launch-with-items__section
+        .c-launch-with-items__section__line-item(
+            *ngFor="let collectionImage of formData.collectorImages",
+        )
+            .c-title-s Collector image {{ collectionImage.url }}
+            .c-launch-with-items__section__input-section
+                label.c-text-l Url full
+                input(
+                    [(ngModel)]="collectionImage.url",
+                )
+            .c-launch-with-items__section__input-section
+                label.c-text-l Url preview
+                input(
+                    [(ngModel)]="collectionImage.thumbnailUrl",
+                )
+            .c-launch-with-items__section__input-section
+                label.c-text-l Dimensions width
+                input(
+                    [(ngModel)]="collectionImage.dimensions.width",
+                )
+            .c-launch-with-items__section__input-section
+                label.c-text-l Dimensions height
+                input(
+                    [(ngModel)]="collectionImage.dimensions.height",
+                )
+            .c-launch-with-items__section__input-section
+                img.c-launch-with-items__image(
+                    [src]="collectionImage.url",
+                )
+
+    .c-launch-with-items__section
+        .c-launch-with-items__section__line-item(
+            *ngFor="let lineItem of formData.lineItems",
+        )
+            .c-title-s Line Item {{ lineItem.templateId }}
+            .c-launch-with-items__section__input-section
+                label.c-text-l Template Id
+                input(
+                    [(ngModel)]="lineItem.templateId",
+                )
+            .c-launch-with-items__section__input-section
+                label.c-text-l Url full
+                input(
+                    [(ngModel)]="lineItem.imageUrls[0].urlFull",
+                )
+            .c-launch-with-items__section__input-section
+                label.c-text-l Url preview
+                input(
+                    [(ngModel)]="lineItem.imageUrls[0].urlPreview",
+                )
+            .c-launch-with-items__section__input-section
+                img.c-launch-with-items__image(
+                    [src]="lineItem.imageUrls[0].urlFull",
+                )
+
+    .c-launch-with-items__section
+        button.c-btn.c-btn--primary(
+            (click)="launchWithItemsAndImages()",
+        ) Launch with items and images

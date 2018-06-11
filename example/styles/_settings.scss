@@ -1,0 +1,12 @@
+
+@import './example/styles/settings/_settings.sizes.scss';
+
+@import './node_modules/@kite-tech/components/styles/settings/settings.global';
+@import './node_modules/@kite-tech/components/styles/settings/settings.colors';
+@import './node_modules/@kite-tech/components/styles/settings/settings.drag-and-drop';
+@import './node_modules/@kite-tech/components/styles/settings/settings.animations';
+@import './node_modules/@kite-tech/components/styles/settings/settings.font-family';
+@import './node_modules/@kite-tech/components/styles/settings/settings.font-weights';
+@import './node_modules/@kite-tech/components/styles/settings/settings.fonts';
+@import './node_modules/@kite-tech/components/styles/settings/settings.sizes';
+@import './node_modules/@kite-tech/components/styles/settings/settings.z-index';

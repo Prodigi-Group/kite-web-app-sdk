@@ -1,0 +1,35 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import 'reflect-metadata';
+import 'zone.js';
+
+import { AppComponent } from './app.component';
+import { rootRouterConfig } from './app.routes';
+
+import {
+    LaunchFromJsonModule,
+    LaunchWithItemsModule,
+} from './../pages/index';
+
+import {
+    HeaderModule,
+} from './../organisms/index';
+
+@NgModule({
+    bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+    ],
+    exports: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        HeaderModule,
+        LaunchFromJsonModule,
+        LaunchWithItemsModule,
+        RouterModule.forRoot(rootRouterConfig, { useHash: true }),
+    ],
+})
+export class AppModule { }
