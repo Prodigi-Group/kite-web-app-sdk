@@ -1,5 +1,5 @@
 import {
-    CollectorImagesInterface,
+    CollectorImageInterface,
     KiteWebAppSdkPostedDataInterface,
     LaunchAppBaseConfigInterface,
     LaunchAppFromJSONInterface,
@@ -53,7 +53,7 @@ export class KiteWebAppSdk {
         dimensions: DimensionsInterface,
         id = UUID.UUID(),
         timesUsed = 0,
-    ): CollectorImagesInterface {
+    ): CollectorImageInterface {
         return {
             dimensions,
             id,

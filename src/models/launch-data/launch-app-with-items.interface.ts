@@ -3,12 +3,12 @@ import {
 } from './index';
 
 import {
-    CollectorImagesInterface,
+    CollectorImageInterface,
     LineItemInterface,
 } from './../index';
 
 export interface LaunchAppWithItemsInterface
 extends LaunchAppBaseConfigInterface {
-    collectorImages?: CollectorImagesInterface[];
+    collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
 }
