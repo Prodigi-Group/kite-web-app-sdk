@@ -2,7 +2,7 @@ import {
     DimensionsInterface,
 } from '@kite-tech/components';
 
-export interface CollectorImagesInterface {
+export interface CollectorImageInterface {
     dimensions: DimensionsInterface;
     id: string;
     isUploadComplete?: boolean;

@@ -7,7 +7,7 @@ import {
 } from '@kite-tech/checkout-sdk';
 
 import {
-    CollectorImagesInterface,
+    CollectorImageInterface,
     LineItemInterface,
     PostedCheckoutDataInterface,
 } from './../index';
@@ -17,6 +17,6 @@ export interface KiteWebAppSdkPostedDataInterface {
     brandSettings?: BrandSettingsInterface;
     checkout?: PostedCheckoutDataInterface;
     checkoutUserFields?: CheckoutFieldsInterface;
-    collectorImages?: CollectorImagesInterface[];
+    collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
 }
