@@ -24,9 +24,11 @@ export class KiteWebAppSdk {
             urlFull: string,
             urlPreview: string,
         }> = [],
+        id = UUID.UUID(),
         variantName = 'cover',
     ): LineItemInterface {
         return {
+            id,
             images: imageUrls.map(({
                 urlFull,
                 urlPreview,

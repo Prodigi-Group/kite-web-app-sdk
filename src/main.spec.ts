@@ -24,6 +24,41 @@ const initKiteWebAppSdk = (
 };
 
 describe('initaliseLineItem', () => {
+    test('Sets id to the value in the argument', () => {
+        const kiteWebAppSdk = initKiteWebAppSdk();
+
+        const lineItem = kiteWebAppSdk.initaliseLineItem(
+            'templateId',
+            [{
+                urlFull: 'urlFull',
+                urlPreview: 'urlPreview',
+            }, {
+                urlFull: 'urlFull2',
+                urlPreview: 'urlPreview2',
+            }],
+            'id',
+        );
+
+        expect(lineItem.id).toBe('id');
+    });
+
+    test('Sets id to a UUID if not defined in the arguments', () => {
+        const kiteWebAppSdk = initKiteWebAppSdk();
+
+        const lineItem = kiteWebAppSdk.initaliseLineItem(
+            'templateId',
+            [{
+                urlFull: 'urlFull',
+                urlPreview: 'urlPreview',
+            }, {
+                urlFull: 'urlFull2',
+                urlPreview: 'urlPreview2',
+            }],
+        );
+
+        expect(lineItem.id).toBe(mockUUID);
+    });
+
     test('Creates the same number of images as in the imageUrls array', () => {
         const kiteWebAppSdk = initKiteWebAppSdk();
 
@@ -214,6 +249,7 @@ describe('initaliseLineItem', () => {
                 urlFull: 'urlFull2',
                 urlPreview: 'urlPreview2',
             }],
+            undefined,
             'variant',
         );
 
