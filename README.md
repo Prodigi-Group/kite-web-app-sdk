@@ -23,6 +23,12 @@ import {
 } from '@kite-tech/web-app-sdk';
 ```
 
+### Require
+
+```js
+const KiteWebAppSdk = require('@kite-tech/web-app-sdk');
+```
+
 ### Suggested JavaScript Usage / Approach
 
 The library currently has a single method, launchPhotobook, which launches the photobook app with
