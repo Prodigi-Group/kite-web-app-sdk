@@ -130,6 +130,7 @@ This will return the following object:
 Generates a line item with default values.
 
 - `variantName` defaults to `cover` if not set.
+- `id` defaults to a random UUID if not set.
 
 ```js
 const lineItem = KiteWebAppSdk.initaliseLineItem(
@@ -138,6 +139,7 @@ const lineItem = KiteWebAppSdk.initaliseLineItem(
         urlFull: 'image1Url',
         urlPreview: 'image1Preview',
     }],
+    'lineItemId',
     'variantName',
 );
 ```
