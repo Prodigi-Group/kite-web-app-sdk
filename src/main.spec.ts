@@ -341,32 +341,6 @@ describe('initialiseCollectorImage', () => {
         expect(collectorImage.thumbnailUrl).toBe('thumbnailUrl');
     });
 
-    test('Sets timesUsed to value from the arguments', () => {
-        const kiteWebAppSdk = initKiteWebAppSdk();
-
-        const collectorImage = kiteWebAppSdk.initialiseCollectorImage(
-            'url',
-            'thumbnailUrl',
-            undefined,
-            '12',
-            10,
-        );
-
-        expect(collectorImage.timesUsed).toBe(10);
-    });
-
-    test('Sets timesUsed to 0 if not specified in the arguments', () => {
-        const kiteWebAppSdk = initKiteWebAppSdk();
-
-        const collectorImage = kiteWebAppSdk.initialiseCollectorImage(
-            'url',
-            'thumbnailUrl',
-            undefined,
-        );
-
-        expect(collectorImage.timesUsed).toBe(0);
-    });
-
     test('Sets url to the value in the arguments', () => {
         const kiteWebAppSdk = initKiteWebAppSdk();
 

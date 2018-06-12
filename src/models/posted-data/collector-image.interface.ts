@@ -6,7 +6,6 @@ export interface CollectorImageInterface {
     dimensions: DimensionsInterface;
     id: string;
     isUploadComplete?: boolean;
-    timesUsed: number;
     thumbnailUrl: string;
     uploadError?: string;
     uploadProgress?: number;

@@ -52,14 +52,12 @@ export class KiteWebAppSdk {
         thumbnailUrl: string,
         dimensions: DimensionsInterface,
         id = UUID.UUID(),
-        timesUsed = 0,
     ): CollectorImageInterface {
         return {
             dimensions,
             id,
             isUploadComplete: true,
             thumbnailUrl,
-            timesUsed,
             url,
         };
     }
