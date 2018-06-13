@@ -1,5 +1,4 @@
 import {
-    CollectorImageInterface,
     KiteWebAppSdkPostedDataInterface,
     LaunchAppBaseConfigInterface,
     LaunchAppFromJSONInterface,
@@ -8,6 +7,7 @@ import {
 } from './models/index';
 
 import {
+    CollectorImageInterface,
     DimensionsInterface,
 } from '@kite-tech/components';
 

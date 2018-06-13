@@ -1,5 +1,6 @@
 import {
     BrandSettingsInterface,
+    CollectorImageInterface,
 } from '@kite-tech/components';
 
 import {
@@ -7,7 +8,6 @@ import {
 } from '@kite-tech/checkout-sdk';
 
 import {
-    CollectorImageInterface,
     LineItemInterface,
     PostedCheckoutDataInterface,
 } from './../index';
