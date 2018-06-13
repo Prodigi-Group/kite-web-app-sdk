@@ -1,8 +1,4 @@
 export {
-    CollectorImageInterface,
-} from './collector-image.interface';
-
-export {
     LineItemInterface,
 } from './line-item.interface';
 

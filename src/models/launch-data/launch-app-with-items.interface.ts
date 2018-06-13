@@ -3,9 +3,12 @@ import {
 } from './index';
 
 import {
-    CollectorImageInterface,
     LineItemInterface,
 } from './../index';
+
+import {
+    CollectorImageInterface,
+} from '@kite-tech/components';
 
 export interface LaunchAppWithItemsInterface
 extends LaunchAppBaseConfigInterface {

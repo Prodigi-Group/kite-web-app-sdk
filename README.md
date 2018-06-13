@@ -66,7 +66,6 @@ KiteWebAppSdk.launchWithItemsAndImages({
         id: 'imageId',
         isUploadComplete: true,
         thumbnailUrl: 'imageThumbnailUrl',
-        timesUsed: 2,
         url: 'imageUrl',
     }],
     lineItems: [
@@ -95,7 +94,6 @@ Other options are available[options]
 Generates a collector image with default values.
 
 - `id` will default to a random GUID
-- `timesUsed` will default to 0
 
 ```js
 const collectorImage = KiteWebAppSdk.initialiseCollectorImage(
@@ -105,8 +103,7 @@ const collectorImage = KiteWebAppSdk.initialiseCollectorImage(
         width: 100,
         height: 150,   
     },
-    'imageId',
-    2
+    'imageId'
 );
 ```
 
@@ -120,7 +117,6 @@ This will return the following object:
     id: 'imageId',
     isUploadComplete: true,
     thumbnailUrl: 'imageThumbnailUrl',
-    timesUsed: 2,
     url: 'imageUrl',
 }
 ```
