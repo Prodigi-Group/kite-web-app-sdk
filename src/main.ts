@@ -99,6 +99,7 @@ export class KiteWebAppSdk {
             brandSettings,
             checkout,
             checkoutUserFields,
+            referenceId,
         }: LaunchAppBaseConfigInterface,
     ) {
         const sdkDataWithBaseConfig = {
@@ -106,6 +107,7 @@ export class KiteWebAppSdk {
             brandSettings,
             checkout,
             checkoutUserFields,
+            referenceId,
         };
         this.postData(
             baseUrl,

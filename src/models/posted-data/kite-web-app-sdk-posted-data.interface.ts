@@ -19,4 +19,5 @@ export interface KiteWebAppSdkPostedDataInterface {
     checkoutUserFields?: CheckoutFieldsInterface;
     collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
+    referenceId?: string;
 }
