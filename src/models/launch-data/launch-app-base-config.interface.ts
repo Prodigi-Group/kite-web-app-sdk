@@ -15,4 +15,5 @@ export interface LaunchAppBaseConfigInterface {
     brandSettings?: BrandSettingsInterface;
     checkout?: PostedCheckoutDataInterface;
     checkoutUserFields?: CheckoutFieldsInterface;
+    referenceId?: string;
 }

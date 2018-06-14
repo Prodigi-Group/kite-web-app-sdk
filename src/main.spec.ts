@@ -477,6 +477,7 @@ describe('postSdkDataWithBaseProperties', () => {
             checkoutUserFields: {
                 customerEmail: 'email',
             },
+            referenceId: 'refId',
         } as LaunchAppBaseConfigInterface;
 
         kiteWebAppSdk.postSdkDataWithBaseProperties(
@@ -497,6 +498,7 @@ describe('postSdkDataWithBaseProperties', () => {
                 checkoutUserFields: {
                     customerEmail: 'email',
                 },
+                referenceId: 'refId',
             }),
         );
     });
