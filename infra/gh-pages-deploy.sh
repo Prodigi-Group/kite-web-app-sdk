@@ -22,7 +22,7 @@ if [[ $NEW_KITE_WEB_APP_SDK =~ ^[0-9,.]*$ ]]; then
     node ./infra/scripts/update-docs-index.js $NEW_KITE_WEB_APP_SDK
     git merge -X ours $ORIGINAL_BRANCH_NAME --no-edit
     git stash pop
-    npm run build:dist
+    npm run example-build:dist
 
     # Add changelog and version change info to README.md in the version folder
     echo "Writing to file: $NEW_KITE_WEB_APP_SDK_FILENAME"
