@@ -1,0 +1,150 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+  test:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Test
+          command: npm t -- --runInBand
+
+  coverage:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+            key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Coverage
+          command: npm run test:dist
+      - store_artifacts:
+          path: coverage
+          prefix: coverage-report
+      - run:
+          name: Upload coverage
+          command: bash <(curl -s https://codecov.io/bash)
+
+  lint:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: TSLint code
+          command: npm run lint
+
+  bundle:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Build app bundles
+          command: |
+            npm run build:dist
+      - store_artifacts:
+          path: dist
+          prefix: bundle
+      - save_cache:
+          key: bundle-cache-{{ .Branch }}-{{ .Revision }}-{{ checksum "package.json" }}
+          paths:
+            - ./dist
+
+  bundle-example:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Build app bundles
+          command: |
+            npm run example-build:dist
+      - store_artifacts:
+          path: example-dist
+          prefix: example-bundle
+      - save_cache:
+          key: bundle-cache-{{ .Branch }}-{{ .Revision }}-{{ checksum "package.json" }}
+          paths:
+            - ./example/dist
+
+  release:
+    docker:
+      - image: circleci/node:8.9.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - add_ssh_keys:
+          fingerprints:
+            - "f0:28:79:de:91:a6:21:86:91:36:83:b2:dd:40:f6:87"
+      - run:
+          name: Run semantic release
+          command: npm run semantic-release
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: gh-pages
+      - lint:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: gh-pages
+      - coverage:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: gh-pages
+      - bundle:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: gh-pages
+      - bundle-example:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: gh-pages
+      - release:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - bundle
+            - bundle-example
