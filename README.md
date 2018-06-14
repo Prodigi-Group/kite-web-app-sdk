@@ -228,5 +228,8 @@ All of these except `baseUrl` are optional.
         // Set to automatically opt the user in for marketting
         optInToMarketing?: boolean;   
     };
+     // Reference Id for the customers order. Used by things like the checkout
+     // callbacks to inform which user it is.
+    referenceId?: string;
 }
 ```
