@@ -7,15 +7,18 @@ import {
     KiteWebAppSdk,
 } from './../../../../src/index';
 
+import {
+    initBaseFormData,
+} from './../../helpers/functions/index';
+
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'launch-from-json-component',
-    styleUrls: [
-        './launch-from-json.component.scss',
-    ],
     templateUrl: './launch-from-json.component.template.pug',
 })
 export class LaunchFromJsonComponent {
+
+    public baseFormData = initBaseFormData();
 
     public formData = {
         appStateJSONString: '',

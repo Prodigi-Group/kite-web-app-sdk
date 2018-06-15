@@ -9,24 +9,19 @@ import 'reflect-metadata';
 import 'zone.js';
 
 import {
-    LaunchWithItemsComponent,
-} from './launch-with-items.component';
-
-import {
-    BaseWebSdkFormModule,
-} from './../../molecules/index';
+    BaseWebSdkFormComponent,
+} from './base-web-sdk-form.component';
 
 @NgModule({
     declarations: [
-        LaunchWithItemsComponent,
+        BaseWebSdkFormComponent,
     ],
     exports: [
-        LaunchWithItemsComponent,
+        BaseWebSdkFormComponent,
     ],
     imports: [
-        BaseWebSdkFormModule,
         CommonModule,
         FormsModule,
     ],
 })
-export class LaunchWithItemsModule { }
+export class BaseWebSdkFormModule { }

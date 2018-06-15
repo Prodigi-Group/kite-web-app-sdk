@@ -1,20 +1,14 @@
 doctype html
 
-.c-launch-from-json
+.c-form
 
-    h2.c-title-m.c-launch-from-json__section Launch from JSON
+    h2.c-title-m.c-form__section Launch from JSON
 
-    .c-launch-from-json__section
-        label.c-text-l(
-            for="baseUrl",
-        ) Base Url
-        input(
-            id="baseUrl",
-            type="text",
-            [(ngModel)]="formData.baseUrl",
-        )
+    base-web-sdk-form-component(
+        [formData]="baseFormData",
+    )
 
-    .c-launch-from-json__section
+    .c-form__section
         label.c-text-l(
             for="appStateJSONString",
         ) App state JSON string
@@ -23,7 +17,7 @@ doctype html
             [(ngModel)]="formData.appStateJSONString",
         )
 
-    .c-launch-from-json__section
+    .c-form__section
         button.c-btn.c-btn--primary(
             (click)="launchFromJson()",
         ) Launch from JSON
