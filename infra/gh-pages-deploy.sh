@@ -36,7 +36,7 @@ if [[ $NEW_KITE_WEB_APP_SDK =~ ^[0-9,.]*$ ]]; then
     git reset
     git add --verbose docs
     git commit --verbose -m "docs: updated to version $NEW_KITE_WEB_APP_SDK"
-    git push --verbose origin gh-pages
+    git push -f --verbose origin gh-pages
     git checkout $ORIGINAL_BRANCH_NAME
  else
     echo "Tagged version. Skipping release to gh-pages..."
