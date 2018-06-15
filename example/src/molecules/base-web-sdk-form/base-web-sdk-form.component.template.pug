@@ -1,0 +1,249 @@
+.c-form__section
+    label.c-text-l(
+        for="baseUrl",
+    ) Base Url
+    input(
+        id="baseUrl",
+        type="text",
+        [(ngModel)]="formData.baseUrl",
+    )
+
+.c-form__section
+    .c-btn.c-btn--outline(
+        (click)="toggleShowMoreOptions()",
+    ) {{ isShowMoreOptionsVisible ? 'Hide' : 'Show' }} more options
+
+div(
+    *ngIf="isShowMoreOptionsVisible",
+)
+    .c-form__section
+        .c-form__section__item
+            .c-title-s.c-form__section__title Brand settings
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="brandColor",
+                ) Brand color
+                input(
+                    id="brandColor",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.brandColor",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="brandName",
+                ) Brand name
+                input(
+                    id="brandName",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.brandName",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="checkoutLogoImage",
+                ) Checkout logo image
+                input(
+                    id="checkoutLogoImage",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.checkoutLogoImage",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="checkoutLogoLinkUrl",
+                ) Checkout logo link url
+                input(
+                    id="checkoutLogoLinkUrl",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.checkoutLogoLinkUrl",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="mixpanelToken",
+                ) Mixpanel token
+                input(
+                    id="mixpanelToken",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.mixpanelToken",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="publishableKey",
+                ) Publishable key
+                input(
+                    id="publishableKey",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.publishableKey",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="testPublishableKey",
+                ) Test publishable key
+                input(
+                    id="testPublishableKey",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.testPublishableKey",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="universalAnalyticsToken",
+                ) Universal analytics token
+                input(
+                    id="universalAnalyticsToken",
+                    type="text",
+                    [(ngModel)]="formData.brandSettings.universalAnalyticsToken",
+                )
+
+    .c-form__section
+        .c-form__section__item
+            .c-title-s.c-form__section__title Checkout
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="cancelCallbackUrls",
+                ) Cancel callback url
+                input(
+                    id="cancelCallbackUrls",
+                    type="text",
+                    [(ngModel)]="formData.checkout.cancelCallbackUrls[0].url",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="cancelCallbackUrls",
+                ) Cancel callback method
+                input(
+                    id="cancelCallbackUrls",
+                    type="text",
+                    [(ngModel)]="formData.checkout.cancelCallbackUrls[0].method",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="checkoutUrl",
+                ) Checkout url
+                input(
+                    id="checkoutUrl",
+                    type="text",
+                    [(ngModel)]="formData.checkout.checkoutUrl",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="successCallbackUrls",
+                ) Success callback url
+                input(
+                    id="successCallbackUrls",
+                    type="text",
+                    [(ngModel)]="formData.checkout.successCallbackUrls[0].url",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="successCallbackUrls",
+                ) Success callback method
+                input(
+                    id="successCallbackUrls",
+                    type="text",
+                    [(ngModel)]="formData.checkout.successCallbackUrls[0].method",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="successRedirectUrl",
+                ) Success redirect url
+                input(
+                    id="successRedirectUrl",
+                    type="text",
+                    [(ngModel)]="formData.checkout.successRedirectUrl",
+                )
+
+    .c-form__section
+        .c-form__section__item
+            .c-title-s.c-form__section__title Checkout user fields
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="customerEmail",
+                ) Customer email
+                input(
+                    id="customerEmail",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.customerEmail",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="optInToMarketing",
+                ) Opt into marketting
+                input(
+                    id="optInToMarketing",
+                    type="checkbox",
+                    [(ngModel)]="formData.checkoutUserFields.optInToMarketing",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="address_line_1",
+                ) Address line 1
+                input(
+                    id="address_line_1",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.address_line_1",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="address_line_2",
+                ) Address line 2
+                input(
+                    id="address_line_2",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.address_line_2",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="city",
+                ) City
+                input(
+                    id="city",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.city",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="county_state",
+                ) Country state
+                input(
+                    id="county_state",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.county_state",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="postCode",
+                ) Postcode
+                input(
+                    id="postCode",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.postCode",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="recipient_first_name",
+                ) Recipient first name
+                input(
+                    id="recipient_first_name",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.recipient_first_name",
+                )
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="recipient_last_name",
+                ) Recipient last name
+                input(
+                    id="recipient_last_name",
+                    type="text",
+                    [(ngModel)]="formData.checkoutUserFields.shippingAddress.recipient_last_name",
+                )
+
+    .c-form__section
+        .c-form__section__item
+            .c-title-s.c-form__section__title Reference Id
+            .c-form__section__input-section
+                label.c-text-l(
+                    for="referenceId",
+                ) Reference Id
+                input(
+                    id="referenceId",
+                    type="text",
+                    [(ngModel)]="formData.referenceId",
+                )

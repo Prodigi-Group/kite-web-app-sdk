@@ -1,0 +1,38 @@
+.c-form__section {
+    border-bottom: 1px solid rgb(85, 85, 85);
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+    .c-form__section__title {
+        margin-bottom: 12px;
+    }
+
+    .c-form__section__item {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #DEDEDE;
+    }
+
+    .c-form__section__item--flex {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .c-form__section__form-part {
+        margin-right: 36px;
+    }
+
+    .c-form__section__input-section {
+        margin-bottom: 12px;
+    }
+
+    .c-form__add-btn {
+        margin-top: 30px;
+    }
+
+    .c-form__image {
+        width: 200px;
+        max-width: 100%;
+    }

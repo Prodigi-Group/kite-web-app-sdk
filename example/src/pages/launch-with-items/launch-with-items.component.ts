@@ -7,6 +7,12 @@ import {
     KiteWebAppSdk,
 } from './../../../../src/index';
 
+import {
+    initBaseFormData,
+} from './../../helpers/functions/index';
+
+import { UUID } from 'angular2-uuid';
+
 const defaultUrl1 = 'https://s3.amazonaws.com/kiteshopify/' +
     'e2f57aa4-10a4-47e4-a87a-99bf8c4730dc_preview.jpeg';
 const defaultUrl2 = 'https://s3.amazonaws.com/kiteshopify/' +
@@ -15,19 +21,16 @@ const defaultUrl2 = 'https://s3.amazonaws.com/kiteshopify/' +
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
     selector: 'launch-with-items-component',
-    styleUrls: [
-        './launch-with-items.component.scss',
-    ],
     templateUrl: './launch-with-items.component.template.pug',
 })
 export class LaunchWithItemsComponent {
     public formData = {
-        baseUrl: 'http://dev-wall-art.kite.ly/canon/',
         collectorImages: [{
             dimensions: {
                 height: 750,
                 width: 1125,
             },
+            id: '1',
             thumbnailUrl: defaultUrl2,
             url: defaultUrl2,
         }, {
@@ -35,16 +38,19 @@ export class LaunchWithItemsComponent {
                 height: 750,
                 width: 1000,
             },
+            id: '2',
             thumbnailUrl: defaultUrl1,
             url: defaultUrl1,
         }],
         lineItems: [{
+            id: '1',
             imageUrls: [{
                 urlFull: defaultUrl1,
                 urlPreview: defaultUrl1,
             }],
             templateId: 'fap1_25_blackframe_16x12',
         }, {
+            id: '2',
             imageUrls: [{
                 urlFull: defaultUrl1,
                 urlPreview: defaultUrl1,
@@ -52,6 +58,50 @@ export class LaunchWithItemsComponent {
             templateId: 'fap_2_blackframe_24x32',
         }],
     };
+
+    public baseFormData = initBaseFormData();
+
+    public deleteCollectorImage(collectionImageId: string) {
+        this.formData.collectorImages = this.formData.collectorImages
+            .filter((collectorImageid) => (
+                collectorImageid.id !== collectionImageId
+            ));
+    }
+
+    public addCollectorImage() {
+        this.formData.collectorImages = [
+            ...this.formData.collectorImages,
+            {
+                dimensions: {
+                    height: 0,
+                    width: 0,
+                },
+                id: UUID.UUID(),
+                thumbnailUrl: '',
+                url: '',
+            },
+        ];
+    }
+
+    public deleteLineItem(lineItemId: string) {
+        this.formData.lineItems = this.formData.lineItems.filter((lineItem) => (
+            lineItem.id !== lineItemId
+        ));
+    }
+
+    public addLineItem() {
+        this.formData.lineItems = [
+            ...this.formData.lineItems,
+            {
+                id: UUID.UUID(),
+                imageUrls: [{
+                    urlFull: '',
+                    urlPreview: '',
+                }],
+                templateId: 'fap1_25_blackframe_16x12',
+            },
+        ];
+    }
 
     public launchWithItemsAndImages() {
         const lineItems = this.formData.lineItems.map(({
@@ -71,7 +121,7 @@ export class LaunchWithItemsComponent {
             dimensions,
         ));
         KiteWebAppSdk.launchWithItemsAndImages({
-            baseUrl: this.formData.baseUrl,
+            ...this.baseFormData,
             collectorImages,
             lineItems,
         });
