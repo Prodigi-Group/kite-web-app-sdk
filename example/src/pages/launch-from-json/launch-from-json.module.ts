@@ -12,6 +12,10 @@ import {
     LaunchFromJsonComponent,
 } from './launch-from-json.component';
 
+import {
+    BaseWebSdkFormModule,
+} from './../../molecules/index';
+
 @NgModule({
     declarations: [
         LaunchFromJsonComponent,
@@ -20,6 +24,7 @@ import {
         LaunchFromJsonComponent,
     ],
     imports: [
+        BaseWebSdkFormModule,
         CommonModule,
         FormsModule,
     ],

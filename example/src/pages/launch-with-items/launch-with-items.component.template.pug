@@ -1,75 +1,89 @@
 doctype html
 
-.c-launch-with-items
+.c-form
 
-    h2.c-title-m.c-launch-with-items__section Launch with items
+    h2.c-title-m.c-form__section Launch with items
 
-    .c-launch-with-items__section
-        label.c-text-l(
-            for="baseUrl",
-        ) Base Url
-        input(
-            id="baseUrl",
-            type="text",
-            [(ngModel)]="formData.baseUrl",
+    base-web-sdk-form-component(
+        [formData]="baseFormData",
+    )
+
+    .c-form__section
+        .c-form__section__item.c-form__section__item--flex(
+            *ngFor="let collectorImage of formData.collectorImages",
         )
+            .c-form__section__form-part
+                .c-title-s.c-form__section__title Collector image {{ collectorImage.id }}
+                .c-form__section__input-section
+                    label.c-text-l Url full
+                    input(
+                        [(ngModel)]="collectorImage.url",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Url preview
+                    input(
+                        [(ngModel)]="collectorImage.thumbnailUrl",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Dimensions width
+                    input(
+                        [(ngModel)]="collectorImage.dimensions.width",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Dimensions height
+                    input(
+                        [(ngModel)]="collectorImage.dimensions.height",
+                    )
+                .c-form__section__input-section
+                    img.c-form__image(
+                        [src]="collectorImage.url",
+                    )
 
-    .c-launch-with-items__section
-        .c-launch-with-items__section__line-item(
-            *ngFor="let collectionImage of formData.collectorImages",
-        )
-            .c-title-s Collector image {{ collectionImage.url }}
-            .c-launch-with-items__section__input-section
-                label.c-text-l Url full
-                input(
-                    [(ngModel)]="collectionImage.url",
-                )
-            .c-launch-with-items__section__input-section
-                label.c-text-l Url preview
-                input(
-                    [(ngModel)]="collectionImage.thumbnailUrl",
-                )
-            .c-launch-with-items__section__input-section
-                label.c-text-l Dimensions width
-                input(
-                    [(ngModel)]="collectionImage.dimensions.width",
-                )
-            .c-launch-with-items__section__input-section
-                label.c-text-l Dimensions height
-                input(
-                    [(ngModel)]="collectionImage.dimensions.height",
-                )
-            .c-launch-with-items__section__input-section
-                img.c-launch-with-items__image(
-                    [src]="collectionImage.url",
-                )
+            button.c-btn.c-btn--dark(
+                (click)="deleteCollectorImage(collectorImage.id)",
+            ) Remove
 
-    .c-launch-with-items__section
-        .c-launch-with-items__section__line-item(
+        .c-form__section__input-section
+            button.c-btn.c-btn--primary.c-form__add-btn(
+                (click)="addCollectorImage()",
+            ) Add collector image
+
+    .c-form__section
+        .c-form__section__item.c-form__section__item--flex(
             *ngFor="let lineItem of formData.lineItems",
         )
-            .c-title-s Line Item {{ lineItem.templateId }}
-            .c-launch-with-items__section__input-section
-                label.c-text-l Template Id
-                input(
-                    [(ngModel)]="lineItem.templateId",
-                )
-            .c-launch-with-items__section__input-section
-                label.c-text-l Url full
-                input(
-                    [(ngModel)]="lineItem.imageUrls[0].urlFull",
-                )
-            .c-launch-with-items__section__input-section
-                label.c-text-l Url preview
-                input(
-                    [(ngModel)]="lineItem.imageUrls[0].urlPreview",
-                )
-            .c-launch-with-items__section__input-section
-                img.c-launch-with-items__image(
-                    [src]="lineItem.imageUrls[0].urlFull",
-                )
+            .c-form__section__form-part
+                .c-title-s.c-form__section__title Line Item {{ lineItem.id }}
+                .c-form__section__input-section
+                    label.c-text-l Template Id
+                    input(
+                        [(ngModel)]="lineItem.templateId",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Url full
+                    input(
+                        [(ngModel)]="lineItem.imageUrls[0].urlFull",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Url preview
+                    input(
+                        [(ngModel)]="lineItem.imageUrls[0].urlPreview",
+                    )
+                .c-form__section__input-section
+                    img.c-form__image(
+                        [src]="lineItem.imageUrls[0].urlFull",
+                    )
 
-    .c-launch-with-items__section
+            button.c-btn.c-btn--dark(
+                (click)="deleteLineItem(lineItem.id)",
+            ) Remove
+
+        .c-form__section__input-section
+            button.c-btn.c-btn--primary.c-form__add-btn(
+                (click)="addLineItem()",
+            ) Add line item
+
+    .c-form__section
         button.c-btn.c-btn--primary(
             (click)="launchWithItemsAndImages()",
         ) Launch with items and images
