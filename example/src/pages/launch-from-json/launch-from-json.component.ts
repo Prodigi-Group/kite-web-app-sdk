@@ -22,11 +22,11 @@ export class LaunchFromJsonComponent {
 
     public formData = {
         appStateJSONString: '',
-        baseUrl: 'http://dev-wall-art.kite.ly/canon/',
     };
 
     public launchFromJson() {
         KiteWebAppSdk.launchFromJSON({
+            ...this.baseFormData,
             ...this.formData,
         });
     }
