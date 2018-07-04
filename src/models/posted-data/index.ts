@@ -1,6 +1,6 @@
 export {
     LineItemInterface,
-} from './line-item.interface';
+} from '@kite-tech/components';
 
 export {
     PostedCheckoutDataInterface,
