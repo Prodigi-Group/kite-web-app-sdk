@@ -233,7 +233,7 @@ All of these except `baseUrl` are optional.
         // Email set for the user when they reach the checkout
         customerEmail?: string;
         // Set to automatically opt the user in for marketting
-        optInToMarketing?: boolean;   
+        termsOfService?: boolean;   
     };
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.

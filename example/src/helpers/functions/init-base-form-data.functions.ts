@@ -31,7 +31,6 @@ export function initBaseFormData(): LaunchAppBaseConfigInterface {
         },
         checkoutUserFields: {
             customerEmail: 'chris@kite.ly',
-            optInToMarketing: false,
             shippingAddress: {
                 address_line_1: 'A1',
                 address_line_2: 'A2',
@@ -41,6 +40,7 @@ export function initBaseFormData(): LaunchAppBaseConfigInterface {
                 recipient_first_name: 'C',
                 recipient_last_name: 'B',
             },
+            termsOfService: false,
         },
         referenceId: 'refId',
     };
