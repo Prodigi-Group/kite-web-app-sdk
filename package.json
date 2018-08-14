@@ -1,6 +1,6 @@
 {
   "name": "@kite-tech/web-app-sdk",
-  "version": "1.2.2-alpha.3",
+  "version": "1.3.0-alpha.1",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@kite-tech/checkout-sdk": "3.1.0-alpha.1",
-    "@kite-tech/components": "3.11.0-alpha.4",
+    "@kite-tech/components": "3.32.0-alpha.1",
     "angular2-uuid": "^1.1.1"
   },
   "devDependencies": {
