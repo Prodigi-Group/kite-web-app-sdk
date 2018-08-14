@@ -73,6 +73,16 @@ doctype html
                     img.c-form__image(
                         [src]="lineItem.imageUrls[0].urlFull",
                     )
+                .c-form__section__input-section
+                    label.c-text-l Options color code
+                    input(
+                        [(ngModel)]="lineItem.options.color",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Options size code
+                    input(
+                        [(ngModel)]="lineItem.options.size",
+                    )
 
             button.c-btn.c-btn--dark(
                 (click)="deleteLineItem(lineItem.id)",

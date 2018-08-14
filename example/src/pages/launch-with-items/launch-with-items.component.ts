@@ -48,6 +48,7 @@ export class LaunchWithItemsComponent {
                 urlFull: defaultUrl1,
                 urlPreview: defaultUrl1,
             }],
+            options: {},
             templateId: 'fap1_25_blackframe_16x12',
         }, {
             id: '2',
@@ -55,7 +56,11 @@ export class LaunchWithItemsComponent {
                 urlFull: defaultUrl1,
                 urlPreview: defaultUrl1,
             }],
-            templateId: 'fap_2_blackframe_24x32',
+            options: {
+                color: 'red',
+                size: '0to3m',
+            },
+            templateId: 'baby_bodysuit',
         }],
     };
 
@@ -98,6 +103,7 @@ export class LaunchWithItemsComponent {
                     urlFull: '',
                     urlPreview: '',
                 }],
+                options: {},
                 templateId: 'fap1_25_blackframe_16x12',
             },
         ];
