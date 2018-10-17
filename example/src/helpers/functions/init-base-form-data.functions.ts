@@ -12,9 +12,9 @@ export function initBaseFormData(): LaunchAppBaseConfigInterface {
                 'e2f57aa4-10a4-47e4-a87a-99bf8c4730dc_preview.jpeg',
             checkoutLogoLinkUrl: 'http://canon.com',
             mixpanelToken: 'mixpanelToken',
-            publishableKey: 'pk_live_605f5643f65599624ee886c0ee39474812537df9',
+            publishableKey: '605f5643f65599624ee886c0ee39474812537df9',
             testPublishableKey:
-                'pk_test_5c0f2c5bd8e176e44bd4fa65b8c2cc7abea07842',
+                '5c0f2c5bd8e176e44bd4fa65b8c2cc7abea07842',
             universalAnalyticsToken: 'uaToken',
         },
         checkout: {
