@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import 'reflect-metadata';
-import 'zone.js';
 
 import { HeaderComponent } from './header.component';
 

@@ -5,8 +5,6 @@ import { NgModule } from '@angular/core';
 import {
     FormsModule,
 } from '@angular/forms';
-import 'reflect-metadata';
-import 'zone.js';
 
 import {
     LaunchFromJsonComponent,
