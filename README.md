@@ -3,7 +3,7 @@
 The Kite Web App SDK provides an interface to launch into the Kite web apps.
 
 Included web apps:
-- Wall art
+- Print shop
 
 ## Tables of contents
 - [Example](#example)
