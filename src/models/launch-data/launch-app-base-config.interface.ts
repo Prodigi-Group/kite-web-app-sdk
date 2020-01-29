@@ -1,6 +1,6 @@
 import {
     PostedCheckoutDataInterface,
-    UserDataInterface
+    UserDataInterface,
 } from './../index';
 
 import {
