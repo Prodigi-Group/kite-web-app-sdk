@@ -1,5 +1,6 @@
 import {
     PostedCheckoutDataInterface,
+    UserDataInterface
 } from './../index';
 
 import {
@@ -16,4 +17,5 @@ export interface LaunchAppBaseConfigInterface {
     checkout?: PostedCheckoutDataInterface;
     checkoutUserFields?: CheckoutFieldsInterface;
     referenceId?: string;
+    userData?: UserDataInterface;
 }
