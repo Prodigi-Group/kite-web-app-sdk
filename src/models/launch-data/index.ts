@@ -9,3 +9,7 @@ export {
 export {
     LaunchAppWithItemsInterface,
 } from './launch-app-with-items.interface';
+
+export {
+    UserDataInterface,
+} from './user-data.interface';
