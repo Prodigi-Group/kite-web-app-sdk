@@ -17,5 +17,6 @@ export interface KiteWebAppSdkPostedDataInterface {
     collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
     referenceId?: string;
+    // To store partner-provided information about customer.
     userData?: UserDataInterface;
 }
