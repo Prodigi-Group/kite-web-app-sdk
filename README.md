@@ -245,5 +245,23 @@ All of these except `baseUrl` are optional.
         design_id?: string;
         external_reference?: string;
     }
+    // Custom content to include in the footer. Allows for an array of
+    // links.
+    footer?: {
+        links?: [
+            {
+                // Text for link if no translations provided.
+                defaultText: string;
+                // `language_code` is the two letter ISO 639-1 code for the language.
+                // E.g., `en` for English.
+                translations?: {
+                    [language_code: string]: [text: string]
+                },
+                url: string;
+                // Set `newFrame` to `true` to open URL in new window/tab.
+                newFrame: boolean;              
+            }
+        ]
+    }
 }
 ```
