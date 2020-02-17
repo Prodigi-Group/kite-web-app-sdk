@@ -238,13 +238,16 @@ All of these except `baseUrl` are optional.
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
     referenceId?: string;
+    otherSettings: {
+        userUploadsAllowed: boolean;
+    };
     // Data that can be passed by a partner into the SDK to enable customer
     // tracking.
     userData?: {
         customer_id?: string;
         design_id?: string;
         external_reference?: string;
-    }
+    };
     // Custom content to include in the footer. Allows for an array of
     // links.
     footer?: {
@@ -262,6 +265,6 @@ All of these except `baseUrl` are optional.
                 newFrame: boolean;              
             }
         ]
-    }
+    };
 }
 ```
