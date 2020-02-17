@@ -10,7 +10,9 @@ import {
 import {
     LineItemInterface,
     PostedCheckoutDataInterface,
+    OtherSettingsInterface,
     UserDataInterface,
+    FooterInterface,
 } from './../index';
 
 export interface KiteWebAppSdkPostedDataInterface {
@@ -22,5 +24,7 @@ export interface KiteWebAppSdkPostedDataInterface {
     lineItems?: LineItemInterface[];
     referenceId?: string;
     // To store partner-provided information about customer.
+    otherSettings?: OtherSettingsInterface;
     userData?: UserDataInterface;
+    footer?: FooterInterface;
 }

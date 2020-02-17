@@ -1,6 +1,8 @@
 {
     "extends": "@kite-tech/tslint/tslint.json",
     "rules": {
+        "max-line-length": false,
+        "ordered-imports": false,
         "quotemark": [true, "single"]
     }
 }
