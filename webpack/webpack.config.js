@@ -5,7 +5,7 @@ const appPathGenerator =
 
 module.exports = () => {
     return {
-        mode: 'production',
+        // mode: 'production',
 
         resolve: {
             extensions: ['.ts', '.js', '.json'],

@@ -20,7 +20,7 @@ To view examples of the various versions of the app go to:
 
 via NPM
 
-    `npm install @kite-tech/photobook-sdk`
+    `npm install @kite-tech/web-app-sdk`
 
 ### ES6 module
 

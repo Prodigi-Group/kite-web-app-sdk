@@ -10,6 +10,6 @@ export declare class KiteWebAppSdk {
     initialiseCollectorImage(url: string, thumbnailUrl: string, dimensions: DimensionsInterface, id?: string): CollectorImageInterface;
     launchWithItemsAndImages(config: LaunchAppWithItemsInterface): void;
     launchFromJSON(config: LaunchAppFromJSONInterface): void;
-    postSdkDataWithBaseProperties(sdkData: KiteWebAppSdkPostedDataInterface, { baseUrl, brandSettings, checkout, checkoutUserFields, referenceId, userData, }: LaunchAppBaseConfigInterface): void;
+    postSdkDataWithBaseProperties(sdkData: KiteWebAppSdkPostedDataInterface, { baseUrl, brandSettings, checkout, checkoutUserFields, referenceId, }: LaunchAppBaseConfigInterface): void;
     postData(path: string, jsonData: string): void;
 }

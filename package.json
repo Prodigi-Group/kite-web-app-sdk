@@ -1,6 +1,6 @@
 {
   "name": "@kite-tech/web-app-sdk",
-  "version": "2.0.0-alpha.0",
+  "version": "1.3.7",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "@commitlint/cli": "7.0.0",
     "@commitlint/config-conventional": "7.0.1",
     "@kite-tech/tslint": "1.0.1",
-    "@kite-tech/webpack": "2.0.0-alpha.11",
+    "@kite-tech/webpack": "1.2.0-alpha.2",
     "@types/jest": "^23.0.0",
     "@types/node": "10.3.1",
     "cheerio": "1.0.0-rc.2",
@@ -47,7 +47,7 @@
     "rxjs": "6.3.3",
     "semantic-release": "15.5.2",
     "ts-jest": "^22.4.6",
-    "ts-loader": "5.3.3",
+    "ts-loader": "3.5.0",
     "typescript": "3.1.6",
     "webpack-cli": "^3.2.1",
     "zone.js": "0.8.26"
