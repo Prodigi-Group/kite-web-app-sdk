@@ -14,7 +14,7 @@ Included web apps:
 
 To view examples of the various versions of the app go to:
 
-- [https://prodigi-group.github.io/kite-web-app-sdk/docs/](https://oceanlabs.github.io/kite-web-app-sdk/docs/)
+- [https://prodigi-group.github.io/kite-web-app-sdk/docs/](https://prodigi-group.github.io/kite-web-app-sdk/docs/)
 
 ## Installation
 
