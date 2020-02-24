@@ -8,6 +8,7 @@ import { rootRouterConfig } from './app.routes';
 import {
     LaunchFromJsonModule,
     LaunchWithItemsModule,
+    LaunchSandboxModule,
 } from './../pages/index';
 
 import {
@@ -27,6 +28,7 @@ import {
         HeaderModule,
         LaunchFromJsonModule,
         LaunchWithItemsModule,
+        LaunchSandboxModule,
         RouterModule.forRoot(rootRouterConfig, { useHash: true }),
     ],
 })

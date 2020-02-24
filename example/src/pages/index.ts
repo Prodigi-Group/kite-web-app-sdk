@@ -13,3 +13,11 @@ export {
 export {
     LaunchWithItemsComponent,
 } from './launch-with-items/launch-with-items.component';
+
+export {
+    LaunchSandboxModule,
+} from './launch-sandbox/launch-sandbox.module';
+
+export {
+    LaunchSandboxComponent,
+} from './launch-sandbox/launch-sandbox.component';
