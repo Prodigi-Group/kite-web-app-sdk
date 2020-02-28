@@ -3,7 +3,7 @@
 The Kite Web App SDK provides an interface to launch into the Kite web apps.
 
 Included web apps:
-- Print shop
+- Print Shop
 
 ## Tables of contents
 - [Example](#example)
@@ -12,7 +12,7 @@ Included web apps:
 
 ## Example
 
-To view examples of the various versions of the app go to:
+To view examples of the various versions of the app as well as access an application that enables a visual method of using the SDK go to:
 
 - [https://prodigi-group.github.io/kite-web-app-sdk/docs/](https://prodigi-group.github.io/kite-web-app-sdk/docs/)
 
@@ -38,7 +38,7 @@ const KiteWebAppSdk = require('@kite-tech/web-app-sdk');
 
 ### Suggested JavaScript Usage / Approach
 
-The library currently has a single method, launchPhotobook, which launches the photobook app with
+The library currently has a single method, `launchPhotobook`, which launches the photobook app with
 a number of images automatically included in the users photobook.
 
 Import the script in the html or package it with your app
@@ -92,7 +92,7 @@ KiteWebAppSdk.launchWithItemsAndImages({
 });
 ```
 
-Other options are available[options]
+Other options are available.
 
 ### Intialise methods
 
@@ -179,14 +179,16 @@ KiteWebAppSdk.launchFromJSON({
 });
 ```
 
-Other options are available[options]
+Other options are available.
 
 ### Other options
 
 These other options can be used both for the `launchFromJSON` and the
 `launchWithItemsAndImages` functions.
 
-All of these except `baseUrl` are optional.
+- All of these except `baseUrl` are optional.
+
+- By default, user uploads _are enabled_ and the associated interface controls made visible. This functionality can be set manually either in the Angular module for a partner's app (`brandSettings.featureSettings.userUploadsAllowed`) or through the SDK (`otherSettings.userUploadsAllowed`). Note that any user uploads setting defined via the SDK will override the corresponding setting, if set, in the partner's app module file.
 
 ```typescript
 {
@@ -200,6 +202,7 @@ All of these except `baseUrl` are optional.
         publishableKey: string; // Kite partner public key
         testPublishableKey: string; // Kite partner public key for testing
         universalAnalyticsToken?: string; // GA Token for tracking
+        userUploadsAllowed?: boolean; // Set whether the user can upload own images.
     };
     checkout?: {
         checkoutUrl?: string; // Url of the checkout to call
@@ -238,8 +241,8 @@ All of these except `baseUrl` are optional.
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
     referenceId?: string;
-    otherSettings: {
-        userUploadsAllowed: boolean;
+    otherSettings?: {
+        userUploadsAllowed?: boolean;
     };
     // Data that can be passed by a partner into the SDK to enable customer
     // tracking.
