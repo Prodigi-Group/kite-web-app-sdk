@@ -19,8 +19,8 @@
   "author": "Chris Berry <chrisberry4545@googlemail.com> (http://chrisbdev.com)",
   "license": "ISC",
   "dependencies": {
-    "@kite-tech/checkout-sdk": "3.8.1-alpha.3",
-    "@kite-tech/components": "5.0.0-alpha.5",
+    "@kite-tech/checkout-sdk": "3.9.0-alpha.4",
+    "@kite-tech/components": "6.2.4",
     "angular2-uuid": "^1.1.1"
   },
   "devDependencies": {

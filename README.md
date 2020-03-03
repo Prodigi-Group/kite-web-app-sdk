@@ -76,16 +76,17 @@ KiteWebAppSdk.launchWithItemsAndImages({
         url: 'imageUrl',
     }],
     lineItems: [
-        images: [
+        images: {
             filters: null,
             mirror: false,
             rotate_degrees: 0,
             scale: 1,
+            aspect?: 'fit', // Optional Property to aspect fit the image inside specified template
             tx: 0,
             ty: 0,
             url_full: 'image1Url',
             url_preview: 'image1Preview'
-        ],
+        },
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
     ],
