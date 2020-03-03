@@ -76,7 +76,7 @@ KiteWebAppSdk.launchWithItemsAndImages({
         url: 'imageUrl',
     }],
     lineItems: [
-        images: {
+        images: [{
             filters: null,
             mirror: false,
             rotate_degrees: 0,
@@ -86,7 +86,7 @@ KiteWebAppSdk.launchWithItemsAndImages({
             ty: 0,
             url_full: 'image1Url',
             url_preview: 'image1Preview'
-        },
+        }],
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
     ],
