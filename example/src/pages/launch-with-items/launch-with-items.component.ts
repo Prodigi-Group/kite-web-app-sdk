@@ -43,24 +43,26 @@ export class LaunchWithItemsComponent {
             url: defaultUrl1,
         }],
         lineItems: [{
+            aspect: 'fit',
             id: '1',
             imageUrls: [{
                 urlFull: defaultUrl1,
                 urlPreview: defaultUrl1,
             }],
             options: {},
-            templateId: 'fap1_25_blackframe_16x12',
+            templateId: 'i8plus_tough_case',
         }, {
-            id: '2',
+            aspect: '',
+            id: '1',
             imageUrls: [{
                 urlFull: defaultUrl1,
                 urlPreview: defaultUrl1,
             }],
             options: {
-                color: 'red',
-                size: '0to3m',
+                color: '',
+                size: '',
             },
-            templateId: 'baby_bodysuit',
+            templateId: 'i8plus_tough_case',
         }],
     };
 
@@ -98,13 +100,14 @@ export class LaunchWithItemsComponent {
         this.formData.lineItems = [
             ...this.formData.lineItems,
             {
+                aspect: '',
                 id: UUID.UUID(),
                 imageUrls: [{
                     urlFull: '',
                     urlPreview: '',
                 }],
                 options: {},
-                templateId: 'fap1_25_blackframe_16x12',
+                templateId: 'i8plus_tough_case',
             },
         ];
     }
@@ -117,6 +120,11 @@ export class LaunchWithItemsComponent {
             templateId,
             imageUrls,
         ));
+        lineItems.forEach((value, index) => {
+            if (this.formData.lineItems[index].aspect === 'fit') {
+                lineItems[index].images[0]['aspect'] = 'fit';
+            }
+        });
         const collectorImages = this.formData.collectorImages.map(({
             dimensions,
             thumbnailUrl,

@@ -4,7 +4,7 @@ import {
 
 export function initBaseFormData(): LaunchAppBaseConfigInterface {
     return {
-        baseUrl: 'http://dev-wall-art.kite.ly/canon/#/create',
+        baseUrl: 'http://dev-print.kite.ly/canon/#/create',
         brandSettings: {
             brandColor: '#32cd32',
             brandName: 'canon',
@@ -22,7 +22,7 @@ export function initBaseFormData(): LaunchAppBaseConfigInterface {
                 method: 'GET',
                 url: 'http://test.com',
             }],
-            checkoutUrl: 'https://staging-checkout.irista.com',
+            checkoutUrl: 'https://staging-checkout.kite.ly',
             successCallbackUrls: [{
                 method: 'GET',
                 url: 'http://success.com',
