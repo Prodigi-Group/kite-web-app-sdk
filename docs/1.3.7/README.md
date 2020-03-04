@@ -1,0 +1,3 @@
+- Version: 1.3.7
+- Changelog: https://github.com/OceanLabs/kite-components/compare/efb41bfd44a4090f78c997f7a9d283e6cbfaeb84...e9038cceaa984f966ccac40df5deb3a91e0479ca
+- Previous version: 1.3.6
