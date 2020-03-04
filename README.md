@@ -3,7 +3,7 @@
 The Kite Web App SDK provides an interface to launch into the Kite web apps.
 
 Included web apps:
-- Wall art
+- Print shop
 
 ## Tables of contents
 - [Example](#example)
@@ -14,13 +14,13 @@ Included web apps:
 
 To view examples of the various versions of the app go to:
 
-- [https://oceanlabs.github.io/kite-web-app-sdk/docs/](https://oceanlabs.github.io/kite-web-app-sdk/docs/)
+- [https://prodigi-group.github.io/kite-web-app-sdk/docs/](https://prodigi-group.github.io/kite-web-app-sdk/docs/)
 
 ## Installation
 
 via NPM
 
-    `npm install @kite-tech/photobook-sdk`
+    `npm install @kite-tech/web-app-sdk`
 
 ### ES6 module
 
@@ -76,16 +76,17 @@ KiteWebAppSdk.launchWithItemsAndImages({
         url: 'imageUrl',
     }],
     lineItems: [
-        images: [
+        images: [{
             filters: null,
             mirror: false,
             rotate_degrees: 0,
             scale: 1,
+            aspect?: 'fit', // Optional Property to aspect fit the image inside specified template
             tx: 0,
             ty: 0,
             url_full: 'image1Url',
             url_preview: 'image1Preview'
-        ],
+        }],
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
     ],
@@ -233,10 +234,38 @@ All of these except `baseUrl` are optional.
         // Email set for the user when they reach the checkout
         customerEmail?: string;
         // Set to automatically opt the user in for marketting
-        optInToMarketing?: boolean;   
+        termsOfService?: boolean;   
     };
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
     referenceId?: string;
+    otherSettings: {
+        userUploadsAllowed: boolean;
+    };
+    // Data that can be passed by a partner into the SDK to enable customer
+    // tracking.
+    userData?: {
+        customer_id?: string;
+        design_id?: string;
+        external_reference?: string;
+    };
+    // Custom content to include in the footer. Allows for an array of
+    // links.
+    footer?: {
+        links?: [
+            {
+                // Text for link if no translations provided.
+                defaultText: string;
+                // `language_code` is the two letter ISO 639-1 code for the language.
+                // E.g., `en` for English.
+                translations?: {
+                    [language_code: string]: [text: string]
+                },
+                url: string;
+                // Set `newFrame` to `true` to open URL in new window/tab.
+                newFrame: boolean;              
+            }
+        ]
+    };
 }
 ```

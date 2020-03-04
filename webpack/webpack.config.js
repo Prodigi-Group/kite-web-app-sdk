@@ -2,10 +2,11 @@ const webpack = require('webpack');
 const paths = require('@kite-tech/webpack/utils/paths');
 const appPathGenerator =
     require('@kite-tech/webpack/utils/app-path-generator');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 module.exports = () => {
     return {
+        // mode: 'production',
+
         resolve: {
             extensions: ['.ts', '.js', '.json'],
             modules: [
@@ -49,30 +50,5 @@ module.exports = () => {
         performance: {
             hints: false,
         },
-
-        plugins: [
-            new UglifyJsPlugin({
-                beautify: false,
-                output: {
-                    comments: false,
-                },
-                mangle: {
-                    screw_ie8: true,
-                },
-                compress: {
-                    screw_ie8: true,
-                    warnings: false,
-                    conditionals: true,
-                    unused: true,
-                    comparisons: true,
-                    sequences: true,
-                    dead_code: true,
-                    evaluate: true,
-                    if_return: true,
-                    join_vars: true,
-                    negate_iife: false,
-                },
-            }),
-        ]
     };
 }

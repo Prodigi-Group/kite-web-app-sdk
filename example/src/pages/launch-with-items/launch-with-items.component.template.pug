@@ -70,8 +70,23 @@ doctype html
                         [(ngModel)]="lineItem.imageUrls[0].urlPreview",
                     )
                 .c-form__section__input-section
+                    label.c-text-l Aspect (Optional - 'fit')
+                    input(
+                        [(ngModel)]="lineItem.aspect",
+                    )
+                .c-form__section__input-section
                     img.c-form__image(
                         [src]="lineItem.imageUrls[0].urlFull",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Options color code
+                    input(
+                        [(ngModel)]="lineItem.options.color",
+                    )
+                .c-form__section__input-section
+                    label.c-text-l Options size code
+                    input(
+                        [(ngModel)]="lineItem.options.size",
                     )
 
             button.c-btn.c-btn--dark(

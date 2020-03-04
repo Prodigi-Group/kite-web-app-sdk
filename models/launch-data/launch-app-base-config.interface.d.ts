@@ -1,16 +1,6 @@
-import {
-    PostedCheckoutDataInterface,
-    UserDataInterface,
-} from './../index';
-
-import {
-    CheckoutFieldsInterface,
-} from '@kite-tech/checkout-sdk';
-
-import {
-    BrandSettingsInterface,
-} from '@kite-tech/components';
-
+import { PostedCheckoutDataInterface, UserDataInterface } from './../index';
+import { CheckoutFieldsInterface } from '@kite-tech/checkout-sdk';
+import { BrandSettingsInterface } from '@kite-tech/components';
 export interface LaunchAppBaseConfigInterface {
     baseUrl: string;
     brandSettings?: BrandSettingsInterface;
