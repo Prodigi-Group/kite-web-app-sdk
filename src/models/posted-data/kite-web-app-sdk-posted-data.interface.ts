@@ -11,7 +11,6 @@ import {
     LineItemInterface,
     PostedCheckoutDataInterface,
     OtherSettingsInterface,
-    UserDataInterface,
     FooterInterface,
 } from './../index';
 
@@ -22,9 +21,12 @@ export interface KiteWebAppSdkPostedDataInterface {
     checkoutUserFields?: CheckoutFieldsInterface;
     collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
+    // References
     referenceId?: string;
+    customerId?: string;
+    externalReference?: string;
     // To store partner-provided information about customer.
     otherSettings?: OtherSettingsInterface;
-    userData?: UserDataInterface;
+    // Page footer configuration
     footer?: FooterInterface;
 }
