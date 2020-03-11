@@ -93,6 +93,8 @@ KiteWebAppSdk.launchWithItemsAndImages({
             url_full: 'image1Url',
             url_preview: 'image1Preview'
         }],
+        design_id: 'designId',
+        affiliate_id: 'affiliateId',
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
     ],
@@ -195,7 +197,7 @@ These other options can be used both for the `launchFromJSON` and the
 
 - All of these except `baseUrl` are optional.
 
-- By default, user uploads _are enabled_ and the associated interface controls made visible. This functionality can be set manually either in the Angular module for a partner's app (`brandSettings.featureSettings.userUploadsAllowed`) or through the SDK (`otherSettings.userUploadsAllowed`). Note that any user uploads setting defined via the SDK will override the corresponding setting, if set, in the partner's app module file.
+- By default, user uploads _are enabled_ and the associated interface controls made visible. This functionality can be set manually either in the Angular module for a partner's app (`brandSettings.featureSettings.userUploadsAllowed`) or through the SDK (`config.userUploadsAllowed`). Note that any user uploads setting defined via the SDK will override the corresponding setting, if set, in the partner's app module file.
 
 ```typescript
 {
@@ -211,6 +213,10 @@ These other options can be used both for the `launchFromJSON` and the
         universalAnalyticsToken?: string; // GA Token for tracking
         userUploadsAllowed?: boolean; // Set whether the user can upload own images.
     };
+    config?: {
+        userUploadsAllowed?: boolean;
+        customer_id?: string;
+    },
     checkout?: {
         checkoutUrl?: string; // Url of the checkout to call
         cancelCallbackUrls?: Array<{
@@ -248,11 +254,6 @@ These other options can be used both for the `launchFromJSON` and the
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
     referenceId?: string;
-    customerId?: string;
-    externalReference?: string;
-    otherSettings?: {
-        userUploadsAllowed?: boolean;
-    };
     // Custom content to include in the footer. Allows for an array of
     // links.
     footer?: {

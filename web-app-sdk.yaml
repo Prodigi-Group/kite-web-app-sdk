@@ -63,8 +63,6 @@ paths:
                 - templateId
                 - variantName
               properties:
-                designId:
-                  type: string
                 images:
                   type: array
                   items:
@@ -100,9 +98,21 @@ paths:
                         type: string
                       url_preview:
                         type: string
+                design_id:
+                  type: string
+                affiliate_id:
+                  type: string
                 templateId:
                   type: string
                 variantName:
+                  type: string
+            config:
+              type: object
+              properties:
+                userUploadsAllowed:
+                  type: boolean
+                  default: true
+                customer_id:
                   type: string
             checkout:
               type: object
@@ -149,16 +159,6 @@ paths:
                   default: true
             referenceId:
               type: string
-            customerId:
-              type: string
-            externalReference:
-              type: string
-            otherSettings:
-              type: object
-              properties:
-                userUploadsAllowed:
-                  type: boolean
-                  default: true
             footer:
               type: object
               properties:

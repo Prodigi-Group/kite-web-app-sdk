@@ -7,6 +7,4 @@ export interface LaunchAppBaseConfigInterface {
     checkout?: PostedCheckoutDataInterface;
     checkoutUserFields?: CheckoutFieldsInterface;
     referenceId?: string;
-    customerId?: string;
-    externalReference?: string;
 }
