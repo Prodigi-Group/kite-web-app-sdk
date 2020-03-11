@@ -4,7 +4,7 @@ swagger: "2.0"
 info:
   title: Prodigi Web App SDK API
   description: Schema of the API for the web app SDK.
-  version: 1.0.0
+  version: 1.x
 host: print.kite.ly
 basePath: /{partner}/#/
 schemes:
@@ -31,9 +31,18 @@ paths:
               type: array
               items:
                 type: object
+                required:
+                  - dimensions
+                  - id
+                  - isUploadComplete
+                  - thumbnailUrl
+                  - url
                 properties:
                   dimensions:
                     type: object
+                    required:
+                      - width
+                      - height
                     properties:
                       width:
                         type: number
@@ -43,6 +52,68 @@ paths:
                     type: string
                   isUploadComplete:
                     type: boolean
+                  thumbnailUrl:
+                    type: string
+                  url:
+                    type: string
+            lineItems:
+              type: object
+              required:
+                - images
+                - templateId
+                - variantName
+              properties:
+                images:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - filters
+                      - mirror
+                      - rotate_degrees
+                      - scale
+                      - tx
+                      - ty
+                      - url_full
+                      - url_preview
+                    properties:
+                      filters:
+                        type: string
+                      mirror:
+                        type: boolean
+                        default: false
+                      rotate_degrees:
+                        type: number
+                      scale:
+                        type: number
+                        default: 1
+                      aspect:
+                        type: string
+                        enum: [fit]
+                      tx:
+                        type: number
+                      ty:
+                        type: number
+                      url_full:
+                        type: string
+                      url_preview:
+                        type: string
+                design_id:
+                  type: string
+                affiliate_id:
+                  type: string
+                templateId:
+                  type: string
+                variantName:
+                  type: string
+            config:
+              type: object
+              properties:
+                userUploadsAllowed:
+                  type: boolean
+                  default: true
+                customer_id:
+                  type: string
             checkout:
               type: object
               properties:
@@ -88,21 +159,6 @@ paths:
                   default: true
             referenceId:
               type: string
-            otherSettings:
-              type: object
-              properties:
-                userUploadsAllowed:
-                  type: boolean
-                  default: true
-            userData:
-              type: object
-              properties:
-                customer_id:
-                  type: string
-                design_id:
-                  type: string
-                external_reference:
-                  type: string
             footer:
               type: object
               properties:

@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@kite-tech/checkout-sdk": "3.9.0-alpha.4",
-    "@kite-tech/components": "6.2.4",
+    "@kite-tech/components": "~6.4.2",
     "angular2-uuid": "^1.1.1"
   },
   "devDependencies": {

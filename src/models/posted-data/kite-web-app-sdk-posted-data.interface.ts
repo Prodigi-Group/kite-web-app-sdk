@@ -8,23 +8,20 @@ import {
 } from '@kite-tech/checkout-sdk';
 
 import {
+    ConfigInterface,
     LineItemInterface,
     PostedCheckoutDataInterface,
-    OtherSettingsInterface,
-    UserDataInterface,
     FooterInterface,
 } from './../index';
 
 export interface KiteWebAppSdkPostedDataInterface {
     appStateJSONString?: string;
     brandSettings?: BrandSettingsInterface;
+    config?: ConfigInterface;
     checkout?: PostedCheckoutDataInterface;
     checkoutUserFields?: CheckoutFieldsInterface;
     collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
     referenceId?: string;
-    // To store partner-provided information about customer.
-    otherSettings?: OtherSettingsInterface;
-    userData?: UserDataInterface;
     footer?: FooterInterface;
 }
