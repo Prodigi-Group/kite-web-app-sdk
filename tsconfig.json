@@ -11,7 +11,8 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "types": [
-            "node"
+            "node",
+            "jest"
         ],
         "lib": [
             "es5",

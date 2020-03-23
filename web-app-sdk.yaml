@@ -109,6 +109,9 @@ paths:
             config:
               type: object
               properties:
+                startInNewTab:
+                  type: boolean
+                  default: false
                 userUploadsAllowed:
                   type: boolean
                   default: true

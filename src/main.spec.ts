@@ -4,7 +4,6 @@ jest.mock('angular2-uuid', () => ({
         UUID: () => mockUUID,
     },
 }));
-import { UUID } from 'angular2-uuid';
 
 import {
     KiteWebAppSdk,
@@ -29,13 +28,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
             'id',
         );
 
@@ -47,13 +48,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.id).toBe(mockUUID);
@@ -64,13 +67,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images).toHaveLength(2);
@@ -99,13 +104,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].mirror).toBe(false);
@@ -117,13 +124,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].rotate_degrees).toBe(0);
@@ -135,13 +144,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].scale).toBe(1);
@@ -153,13 +164,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].tx).toBe(0);
@@ -171,13 +184,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].ty).toBe(0);
@@ -189,13 +204,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].url_full).toBe('urlFull');
@@ -207,13 +224,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].url_preview).toBe('urlPreview');
@@ -225,13 +244,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.templateId).toBe('templateId');
@@ -242,13 +263,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
             undefined,
             'variant',
         );
@@ -261,13 +284,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.variantName).toBe('cover');
@@ -357,12 +382,16 @@ describe('initialiseCollectorImage', () => {
 describe('launchWithItemsAndImages', () => {
     const initLaunchWithItemsAndImagesData = () => {
         const config = {
-            collectorImages: [{
-                id: 'collector1',
-            }],
-            lineItems: [{
-                id: 'lineItem1',
-            }],
+            collectorImages: [
+                {
+                    id: 'collector1',
+                },
+            ],
+            lineItems: [
+                {
+                    id: 'lineItem1',
+                },
+            ],
         } as LaunchAppWithItemsInterface;
         const kiteWebAppSdk = initKiteWebAppSdk();
         kiteWebAppSdk.postSdkDataWithBaseProperties = jest.fn();
@@ -505,6 +534,9 @@ describe('postSdkDataWithBaseProperties', () => {
 });
 
 describe('postData', () => {
+    const nestedData = JSON.stringify({ data: 'data' });
+    const data = JSON.stringify({ appStateJSONString: nestedData });
+
     const initPostData = () => {
         const window = {
             document: {
@@ -539,11 +571,9 @@ describe('postData', () => {
             window,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(window.document.createElement).toHaveBeenCalledWith(
-            'form',
-        );
+        expect(window.document.createElement).toHaveBeenCalledWith('form');
     });
 
     test('Sets the form method to post', () => {
@@ -552,11 +582,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(form.setAttribute).toHaveBeenCalledWith(
-            'method', 'post',
-        );
+        expect(form.setAttribute).toHaveBeenCalledWith('method', 'post');
     });
 
     test('Sets the form action to the supplied path', () => {
@@ -565,11 +593,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(form.setAttribute).toHaveBeenCalledWith(
-            'action', 'test',
-        );
+        expect(form.setAttribute).toHaveBeenCalledWith('action', 'test');
     });
 
     test('Sets the form charset to utf-8', () => {
@@ -578,7 +604,7 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
         expect(form.acceptCharset).toBe('utf-8');
     });
@@ -589,7 +615,7 @@ describe('postData', () => {
             window,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
         expect(window.document.createElement)
             .toHaveBeenCalledWith('input');
@@ -601,11 +627,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(input.setAttribute).toHaveBeenCalledWith(
-            'type', 'hidden',
-        );
+        expect(input.setAttribute).toHaveBeenCalledWith('type', 'hidden');
     });
 
     test('Sets the input name to data', () => {
@@ -614,11 +638,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(input.setAttribute).toHaveBeenCalledWith(
-            'name', 'data',
-        );
+        expect(input.setAttribute).toHaveBeenCalledWith('name', 'data');
     });
 
     test('Sets the input value to the jsonData', () => {
@@ -627,11 +649,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(input.setAttribute).toHaveBeenCalledWith(
-            'value', 'json',
-        );
+        expect(input.setAttribute).toHaveBeenCalledWith('value', data);
     });
 
     test('Appends the input to the form', () => {
@@ -641,11 +661,37 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(form.appendChild).toHaveBeenCalledWith(
+        expect(form.appendChild).toHaveBeenCalledWith(input);
+    });
+
+    test('Sets `target` attribute to have UI open in new tab if set.', () => {
+        // noinspection JSUnusedLocalSymbols
+        const {
+            form,
             input,
+            kiteWebAppSdk,
+        } = initPostData();
+
+        const nestedOtherData = JSON.stringify(
+            {
+                config: {
+                    startInNewTab: true,
+                },
+            },
         );
+        const otherData = JSON.stringify(
+            {
+                appStateJSONString: nestedOtherData,
+            },
+        );
+        const spy = jest.spyOn(form, 'setAttribute');
+
+        kiteWebAppSdk.postData('test', otherData);
+
+        expect(spy).toHaveBeenCalledTimes(3);
+        expect(spy.mock.calls[2]).toEqual(['target', '_blank']);
     });
 
     test('Appends the form to the document body', () => {
@@ -655,11 +701,9 @@ describe('postData', () => {
             window,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(window.document.body.appendChild).toHaveBeenCalledWith(
-            form,
-        );
+        expect(window.document.body.appendChild).toHaveBeenCalledWith(form);
     });
 
     test('Submits the form', () => {
@@ -668,7 +712,7 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
         expect(form.submit).toHaveBeenCalled();
     });

@@ -214,7 +214,8 @@ These other options can be used both for the `launchFromJSON` and the
         userUploadsAllowed?: boolean; // Set whether the user can upload own images.
     };
     config?: {
-        userUploadsAllowed?: boolean;
+        startInNewTab?: boolean; // Set to `true` to have UI open in new tab.
+        userUploadsAllowed?: boolean; // Set whether users can upload photos.
         customer_id?: string;
     },
     checkout?: {
