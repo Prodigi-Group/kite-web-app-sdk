@@ -28,13 +28,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
             'id',
         );
 
@@ -46,13 +48,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.id).toBe(mockUUID);
@@ -63,13 +67,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images).toHaveLength(2);
@@ -98,13 +104,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].mirror).toBe(false);
@@ -116,13 +124,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].rotate_degrees).toBe(0);
@@ -134,13 +144,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].scale).toBe(1);
@@ -152,13 +164,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].tx).toBe(0);
@@ -170,13 +184,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].ty).toBe(0);
@@ -188,13 +204,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].url_full).toBe('urlFull');
@@ -206,13 +224,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.images[0].url_preview).toBe('urlPreview');
@@ -224,13 +244,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.templateId).toBe('templateId');
@@ -241,13 +263,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
             undefined,
             'variant',
         );
@@ -260,13 +284,15 @@ describe('initaliseLineItem', () => {
 
         const lineItem = kiteWebAppSdk.initaliseLineItem(
             'templateId',
-            [{
-                urlFull: 'urlFull',
-                urlPreview: 'urlPreview',
-            }, {
-                urlFull: 'urlFull2',
-                urlPreview: 'urlPreview2',
-            }],
+            [
+                {
+                    urlFull: 'urlFull',
+                    urlPreview: 'urlPreview',
+                }, {
+                    urlFull: 'urlFull2',
+                    urlPreview: 'urlPreview2',
+                },
+            ],
         );
 
         expect(lineItem.variantName).toBe('cover');
@@ -356,12 +382,16 @@ describe('initialiseCollectorImage', () => {
 describe('launchWithItemsAndImages', () => {
     const initLaunchWithItemsAndImagesData = () => {
         const config = {
-            collectorImages: [{
-                id: 'collector1',
-            }],
-            lineItems: [{
-                id: 'lineItem1',
-            }],
+            collectorImages: [
+                {
+                    id: 'collector1',
+                },
+            ],
+            lineItems: [
+                {
+                    id: 'lineItem1',
+                },
+            ],
         } as LaunchAppWithItemsInterface;
         const kiteWebAppSdk = initKiteWebAppSdk();
         kiteWebAppSdk.postSdkDataWithBaseProperties = jest.fn();
