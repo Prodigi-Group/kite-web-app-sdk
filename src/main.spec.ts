@@ -4,7 +4,6 @@ jest.mock('angular2-uuid', () => ({
         UUID: () => mockUUID,
     },
 }));
-import { UUID } from 'angular2-uuid';
 
 import {
     KiteWebAppSdk,
@@ -505,6 +504,9 @@ describe('postSdkDataWithBaseProperties', () => {
 });
 
 describe('postData', () => {
+    const nestedData = JSON.stringify({ data: 'data' });
+    const data = JSON.stringify({ appStateJSONString: nestedData });
+
     const initPostData = () => {
         const window = {
             document: {
@@ -539,11 +541,9 @@ describe('postData', () => {
             window,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(window.document.createElement).toHaveBeenCalledWith(
-            'form',
-        );
+        expect(window.document.createElement).toHaveBeenCalledWith('form');
     });
 
     test('Sets the form method to post', () => {
@@ -552,11 +552,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(form.setAttribute).toHaveBeenCalledWith(
-            'method', 'post',
-        );
+        expect(form.setAttribute).toHaveBeenCalledWith('method', 'post');
     });
 
     test('Sets the form action to the supplied path', () => {
@@ -565,11 +563,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(form.setAttribute).toHaveBeenCalledWith(
-            'action', 'test',
-        );
+        expect(form.setAttribute).toHaveBeenCalledWith('action', 'test');
     });
 
     test('Sets the form charset to utf-8', () => {
@@ -578,7 +574,7 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
         expect(form.acceptCharset).toBe('utf-8');
     });
@@ -589,7 +585,7 @@ describe('postData', () => {
             window,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
         expect(window.document.createElement)
             .toHaveBeenCalledWith('input');
@@ -601,11 +597,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(input.setAttribute).toHaveBeenCalledWith(
-            'type', 'hidden',
-        );
+        expect(input.setAttribute).toHaveBeenCalledWith('type', 'hidden');
     });
 
     test('Sets the input name to data', () => {
@@ -614,11 +608,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(input.setAttribute).toHaveBeenCalledWith(
-            'name', 'data',
-        );
+        expect(input.setAttribute).toHaveBeenCalledWith('name', 'data');
     });
 
     test('Sets the input value to the jsonData', () => {
@@ -627,11 +619,9 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(input.setAttribute).toHaveBeenCalledWith(
-            'value', 'json',
-        );
+        expect(input.setAttribute).toHaveBeenCalledWith('value', data);
     });
 
     test('Appends the input to the form', () => {
@@ -641,11 +631,26 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(form.appendChild).toHaveBeenCalledWith(
+        expect(form.appendChild).toHaveBeenCalledWith(input);
+    });
+
+    test('Sets `target` attribute to have UI open in new tab if set.', () => {
+        const {
+            form,
             input,
-        );
+            kiteWebAppSdk,
+        } = initPostData();
+
+        const nestedOtherData = JSON.stringify({ config: { startInNewTab: true } });
+        const otherData = JSON.stringify({ appStateJSONString: nestedOtherData });
+        const spy = jest.spyOn(form, 'setAttribute');
+
+        kiteWebAppSdk.postData('test', otherData);
+
+        expect(spy).toHaveBeenCalledTimes(3);
+        expect(spy.mock.calls[2]).toEqual(['target', '_blank']);
     });
 
     test('Appends the form to the document body', () => {
@@ -655,11 +660,9 @@ describe('postData', () => {
             window,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
-        expect(window.document.body.appendChild).toHaveBeenCalledWith(
-            form,
-        );
+        expect(window.document.body.appendChild).toHaveBeenCalledWith(form);
     });
 
     test('Submits the form', () => {
@@ -668,7 +671,7 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        kiteWebAppSdk.postData('test', 'json');
+        kiteWebAppSdk.postData('test', data);
 
         expect(form.submit).toHaveBeenCalled();
     });

@@ -191,7 +191,7 @@ export class KiteWebAppSdk {
         const parsedJson = JSON.parse(jsonData);
         const parsedSettings = JSON.parse(parsedJson.appStateJSONString);
 
-        if (parsedSettings.config && parsedSettings.config.startInNewTab) {
+        if (parsedSettings.hasOwnProperty('config') && parsedSettings.config.startInNewTab) {
             form.setAttribute('target', '_blank');
         }
 
