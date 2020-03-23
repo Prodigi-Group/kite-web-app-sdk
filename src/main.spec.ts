@@ -637,14 +637,25 @@ describe('postData', () => {
     });
 
     test('Sets `target` attribute to have UI open in new tab if set.', () => {
+        // noinspection JSUnusedLocalSymbols
         const {
             form,
             input,
             kiteWebAppSdk,
         } = initPostData();
 
-        const nestedOtherData = JSON.stringify({ config: { startInNewTab: true } });
-        const otherData = JSON.stringify({ appStateJSONString: nestedOtherData });
+        const nestedOtherData = JSON.stringify(
+            {
+                config: {
+                    startInNewTab: true,
+                },
+            },
+        );
+        const otherData = JSON.stringify(
+            {
+                appStateJSONString: nestedOtherData,
+            },
+        );
         const spy = jest.spyOn(form, 'setAttribute');
 
         kiteWebAppSdk.postData('test', otherData);
