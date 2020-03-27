@@ -2,9 +2,8 @@
 
 The Kite Web App SDK provides an interface to launch into the Kite/Prodigi web apps.
 
-Included web apps:
+Included web app:
 - Print Shop
-- Photo Book
 
 ## Table of Contents
 - [Example](#example)
@@ -41,11 +40,6 @@ const KiteWebAppSdk = require('@kite-tech/web-app-sdk');
 
 ### Suggested JavaScript Usage
 
-#### Photo Book
-
-The library currently has a single method, `launchPhotobook`, which launches the photobook app with
-a number of images automatically included in the users photobook.
-
 Import the script in the html or package it with your app.
 
 ```html
@@ -80,7 +74,7 @@ KiteWebAppSdk.launchWithItemsAndImages({
         thumbnailUrl: 'imageThumbnailUrl',
         url: 'imageUrl',
     }],
-    lineItems: [
+    lineItems: [{
         designId?: string
         images: [{
             filters: null,
@@ -97,7 +91,7 @@ KiteWebAppSdk.launchWithItemsAndImages({
         affiliate_id: 'affiliateId',
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
-    ],
+    }],
 });
 ```
 

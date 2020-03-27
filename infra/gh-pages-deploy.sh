@@ -6,8 +6,8 @@ if [[ $NEW_KITE_WEB_APP_SDK =~ ^[0-9,.]*$ ]]; then
     NEW_KITE_WEB_APP_SDK_COMMIT_HASH=$(git log -n 1 --pretty=format:"%H")
     NEW_KITE_WEB_APP_SDK_FILENAME="docs/$NEW_KITE_WEB_APP_SDK/README.md"
 
-    git config --global user.email "chrisberry4545@googlemail.com"
-    git config --global user.name "chrisberry4545"
+    git config --global user.email "sabhya.verma16@gmail.com"
+    git config --global user.name "A7xSV"
 
     git stash clear
     git stash --include-untracked
