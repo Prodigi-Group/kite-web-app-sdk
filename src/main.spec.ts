@@ -674,21 +674,16 @@ describe('postData', () => {
             kiteWebAppSdk,
         } = initPostData();
 
-        const nestedOtherData = JSON.stringify(
+        const jsonData = JSON.stringify(
             {
                 config: {
                     startInNewTab: true,
                 },
             },
         );
-        const otherData = JSON.stringify(
-            {
-                appStateJSONString: nestedOtherData,
-            },
-        );
         const spy = jest.spyOn(form, 'setAttribute');
 
-        kiteWebAppSdk.postData('test', otherData);
+        kiteWebAppSdk.postData('test', jsonData);
 
         expect(spy).toHaveBeenCalledTimes(3);
         expect(spy.mock.calls[2]).toEqual(['target', '_blank']);
