@@ -1,6 +1,6 @@
 import { BrandSettingsInterface, CollectorImageInterface } from '@kite-tech/components';
 import { CheckoutFieldsInterface } from '@kite-tech/checkout-sdk';
-import { LineItemInterface, PostedCheckoutDataInterface, UserDataInterface } from './../index';
+import { LineItemInterface, PostedCheckoutDataInterface } from './../index';
 export interface KiteWebAppSdkPostedDataInterface {
     appStateJSONString?: string;
     brandSettings?: BrandSettingsInterface;
@@ -9,5 +9,6 @@ export interface KiteWebAppSdkPostedDataInterface {
     collectorImages?: CollectorImageInterface[];
     lineItems?: LineItemInterface[];
     referenceId?: string;
-    userData?: UserDataInterface;
+    customerId?: string;
+    externalReference?: string;
 }

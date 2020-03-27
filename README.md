@@ -1,47 +1,46 @@
 # Kite Web App SDK
 
-The Kite Web App SDK provides an interface to launch into the Kite web apps.
+The Kite Web App SDK provides an interface to launch into the Kite/Prodigi web apps.
 
-Included web apps:
-- Print shop
+Included web app:
+- Print Shop
 
-## Tables of contents
+## Table of Contents
 - [Example](#example)
 - [Installation](#installation)
 - [API](#api)
 
 ## Example
 
-To view examples of the various versions of the app go to:
+To view examples of the various versions of the app as well as access an application that enables a visual method of using the SDK go to:
 
 - [https://prodigi-group.github.io/kite-web-app-sdk/docs/](https://prodigi-group.github.io/kite-web-app-sdk/docs/)
 
 ## Installation
 
-via NPM
+Install using NPM:
 
-    `npm install @kite-tech/web-app-sdk`
+```
+npm install @kite-tech/web-app-sdk
+```
+    
+### Import
 
-### ES6 module
+#### ES6 module
 
 ```js
-import {
-    KiteWebAppSdk,
-} from '@kite-tech/web-app-sdk';
+import { KiteWebAppSdk } from '@kite-tech/web-app-sdk';
 ```
 
-### Require
+#### Require
 
 ```js
 const KiteWebAppSdk = require('@kite-tech/web-app-sdk');
 ```
 
-### Suggested JavaScript Usage / Approach
+### Suggested JavaScript Usage
 
-The library currently has a single method, launchPhotobook, which launches the photobook app with
-a number of images automatically included in the users photobook.
-
-Import the script in the html or package it with your app
+Import the script in the html or package it with your app.
 
 ```html
 // From CDN
@@ -53,7 +52,7 @@ Import the script in the html or package it with your app
 
 ## API
 
-### Launch with items
+### Launch with Items
 
 Launches an app with some images in the user's image collector, some existing
 line items or both.
@@ -75,7 +74,8 @@ KiteWebAppSdk.launchWithItemsAndImages({
         thumbnailUrl: 'imageThumbnailUrl',
         url: 'imageUrl',
     }],
-    lineItems: [
+    lineItems: [{
+        designId?: string
         images: [{
             filters: null,
             mirror: false,
@@ -87,17 +87,19 @@ KiteWebAppSdk.launchWithItemsAndImages({
             url_full: 'image1Url',
             url_preview: 'image1Preview'
         }],
+        design_id: 'designId',
+        affiliate_id: 'affiliateId',
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
-    ],
+    }],
 });
 ```
 
-Other options are available[options]
+Other [options](#options) are available.
 
-### Intialise methods
+### Intialise Methods
 
-### Initialise collector image
+#### Initialise Collector Image
 
 Generates a collector image with default values.
 
@@ -129,7 +131,7 @@ This will return the following object:
 }
 ```
 
-#### Initialise line item
+#### Initialise Line Item
 
 Generates a line item with default values.
 
@@ -169,7 +171,7 @@ This will return the following object:
 
 ### Launch from JSON
 
-Launches the app from the state JSON, for loading a stored user state.
+Launches the app from the state JSON for loading a stored user state.
 
 ```js
 KiteWebAppSdk.launchFromJSON({
@@ -180,14 +182,16 @@ KiteWebAppSdk.launchFromJSON({
 });
 ```
 
-Other options are available[options]
+Other [options](#options) are available.
 
-### Other options
+### Options
 
 These other options can be used both for the `launchFromJSON` and the
 `launchWithItemsAndImages` functions.
 
-All of these except `baseUrl` are optional.
+- All of these except `baseUrl` are optional.
+
+- By default, user uploads _are enabled_ and the associated interface controls made visible. This functionality can be set manually either in the Angular module for a partner's app (`brandSettings.featureSettings.userUploadsAllowed`) or through the SDK (`config.userUploadsAllowed`). Note that any user uploads setting defined via the SDK will override the corresponding setting, if set, in the partner's app module file.
 
 ```typescript
 {
@@ -201,7 +205,13 @@ All of these except `baseUrl` are optional.
         publishableKey: string; // Kite partner public key
         testPublishableKey: string; // Kite partner public key for testing
         universalAnalyticsToken?: string; // GA Token for tracking
+        userUploadsAllowed?: boolean; // Set whether the user can upload own images.
     };
+    config?: {
+        startInNewTab?: boolean; // Set to `true` to have UI open in new tab.
+        userUploadsAllowed?: boolean; // Set whether users can upload photos.
+        customer_id?: string;
+    },
     checkout?: {
         checkoutUrl?: string; // Url of the checkout to call
         cancelCallbackUrls?: Array<{
@@ -239,16 +249,6 @@ All of these except `baseUrl` are optional.
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
     referenceId?: string;
-    otherSettings: {
-        userUploadsAllowed: boolean;
-    };
-    // Data that can be passed by a partner into the SDK to enable customer
-    // tracking.
-    userData?: {
-        customer_id?: string;
-        design_id?: string;
-        external_reference?: string;
-    };
     // Custom content to include in the footer. Allows for an array of
     // links.
     footer?: {

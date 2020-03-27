@@ -2,6 +2,7 @@
     "extends": "@kite-tech/tslint/tslint.json",
     "rules": {
         "max-line-length": false,
+        "no-trailing-whitespace": false,
         "ordered-imports": false,
         "quotemark": [true, "single"]
     }

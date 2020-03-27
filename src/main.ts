@@ -187,6 +187,13 @@ export class KiteWebAppSdk {
         const form = document.createElement('form');
         form.setAttribute('method', 'post');
         form.setAttribute('action', path);
+
+        const parsedJson = JSON.parse(jsonData);
+
+        if (parsedJson.hasOwnProperty('config') && parsedJson.config.startInNewTab) {
+            form.setAttribute('target', '_blank');
+        }
+
         form.acceptCharset = 'utf-8';
 
         const hiddenField = document.createElement('input');

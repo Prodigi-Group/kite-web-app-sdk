@@ -1,0 +1,202 @@
+# PRODIGI
+# WEB APP SDK API DOCUMENTATION
+swagger: "2.0"
+info:
+  title: Prodigi Web App SDK API
+  description: Schema of the API for the web app SDK.
+  version: 1.x
+host: print.kite.ly
+basePath: /{partner}/#/
+schemes:
+  - https
+paths:
+  /create:
+    post:
+      summary: Configures a print shop session.
+      description: Passes customisations like line items, checkout details and other settings via the SDK.
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      - name: body
+        in: body
+        schema:
+          required:
+            - baseUrl
+          properties:
+            baseUrl:
+              type: string
+            collectorImages:
+              type: array
+              items:
+                type: object
+                required:
+                  - dimensions
+                  - id
+                  - isUploadComplete
+                  - thumbnailUrl
+                  - url
+                properties:
+                  dimensions:
+                    type: object
+                    required:
+                      - width
+                      - height
+                    properties:
+                      width:
+                        type: number
+                      height:
+                        type: number
+                  id:
+                    type: string
+                  isUploadComplete:
+                    type: boolean
+                  thumbnailUrl:
+                    type: string
+                  url:
+                    type: string
+            lineItems:
+              type: object
+              required:
+                - images
+                - templateId
+                - variantName
+              properties:
+                images:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - filters
+                      - mirror
+                      - rotate_degrees
+                      - scale
+                      - tx
+                      - ty
+                      - url_full
+                      - url_preview
+                    properties:
+                      filters:
+                        type: string
+                      mirror:
+                        type: boolean
+                        default: false
+                      rotate_degrees:
+                        type: number
+                      scale:
+                        type: number
+                        default: 1
+                      aspect:
+                        type: string
+                        enum: [fit]
+                      tx:
+                        type: number
+                      ty:
+                        type: number
+                      url_full:
+                        type: string
+                      url_preview:
+                        type: string
+                design_id:
+                  type: string
+                affiliate_id:
+                  type: string
+                templateId:
+                  type: string
+                variantName:
+                  type: string
+            config:
+              type: object
+              properties:
+                startInNewTab:
+                  type: boolean
+                  default: false
+                userUploadsAllowed:
+                  type: boolean
+                  default: true
+                customer_id:
+                  type: string
+            checkout:
+              type: object
+              properties:
+                checkoutUrl:
+                  type: string
+                cancelCallbackUrls:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      method:
+                        type: string
+                      url:
+                        type: string
+                successRedirectUrl:
+                  type: string
+            checkoutUserFields:
+              type: object
+              properties:
+                shippingAddress:
+                  type: object
+                  properties:
+                    recipient_first_name:
+                      type: string
+                    recipient_last_name:
+                      type: string
+                    address_line_1:
+                      type: string
+                    address_line_2:
+                      type: string
+                    city:
+                      type: string
+                    county_state:
+                      type: string
+                    postcode:
+                      type: string
+                    country:
+                      type: string
+                customerEmail:
+                  type: string
+                termsOfService:
+                  type: boolean
+                  default: true
+            referenceId:
+              type: string
+            footer:
+              type: object
+              properties:
+                links:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - defaultText
+                      - url
+                    properties:
+                      defaultText:
+                        type: string
+                      translations:
+                        type: array
+                        description: Each key is the two letter ISO 639-1 code for the language. Each value is the translated text.
+                        items:
+                          type: object
+                          additionalProperties:
+                            type: string
+                          example:
+                            en: Hello
+                            fr: Bonjour
+                            de: Guten tag
+                      url:
+                        type: string
+                      newFrame:
+                        type: boolean
+                        default: false
+      responses:
+        200:
+          description: OK.
+        400:
+          description: Bad request.
+        401:
+          description: Authorization information is missing or invalid.
+        404:
+          description: No resources found.

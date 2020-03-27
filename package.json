@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@kite-tech/checkout-sdk": "3.9.0-alpha.4",
-    "@kite-tech/components": "6.2.4",
+    "@kite-tech/components": "~6.4.2",
     "angular2-uuid": "^1.1.1"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "@commitlint/config-conventional": "7.0.1",
     "@kite-tech/tslint": "1.0.1",
     "@kite-tech/webpack": "1.2.0-alpha.2",
-    "@types/jest": "^23.0.0",
+    "@types/jest": "^23.3.14",
     "@types/node": "10.3.1",
     "cheerio": "1.0.0-rc.2",
     "husky": "0.14.3",
