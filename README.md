@@ -209,7 +209,7 @@ These other options can be used both for the `launchFromJSON` and the
     };
     config?: {
         startInNewTab?: boolean; // Set to `true` to have UI open in new tab.
-        returnToUrl?: string; // If set, UI will display a button to enable users to return to the URL specified. Suitable for partners wishing to have users be able to return to their own websites.
+        returnToUrl?: string; // If set, UI will display a button to enable users to return to the URL specified. Suitable for partners wishing to have users able to return to their own websites.
         userUploadsAllowed?: boolean; // Set whether users can upload photos.
         customer_id?: string;
     },
