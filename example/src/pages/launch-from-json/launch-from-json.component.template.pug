@@ -11,10 +11,10 @@ doctype html
     .c-form__section
         label.c-text-l(
             for="appStateJSONString",
-        ) App state JSON string
+        ) Additional configuration - JSON string
         textarea(
             id="appStateJSONString",
-            [(ngModel)]="formData.appStateJSONString",
+            [(ngModel)]="formData",
         )
 
     .c-form__section
