@@ -256,7 +256,7 @@ These other options can be used both for the `launchFromJSON` and the
         thumbnailUrl: 'imageThumbnailUrl',
         url: 'imageUrl',
     }],
-    lineItems?: [{ // Array of objects containing images and variant or products to be added to basket on launch
+    lineItems?: [{ // Array of objects defining images and variants of products to be added to basket on launch
         designId?: string
         images: [{
             filters: null,
