@@ -82,16 +82,9 @@ export class KiteWebAppSdk {
         );
     }
 
-    public launchFromJSON(config: LaunchAppFromJSONInterface) {
-        const {
-            appStateJSONString,
-        } = config;
-        const jsonData: KiteWebAppSdkPostedDataInterface = {
-            appStateJSONString,
-        };
-
+    public launchFromJSON(config: any) {
         this.postSdkDataWithBaseProperties(
-            jsonData,
+            config,
             config,
         );
     }
@@ -140,6 +133,9 @@ export class KiteWebAppSdk {
         this.lineItemsToProcess = (sdkData.lineItems).length;
         this.lineItemsProcessed = 0;
         (sdkData.lineItems).forEach((lineItem) => {
+            if (!lineItem.id) {
+                lineItem.id = UUID.UUID();
+            }
             this.processScaleAndPost(
                 lineItem.images[0],
                 lineItem.templateId,
@@ -147,6 +143,7 @@ export class KiteWebAppSdk {
                 sdkData,
             );
         });
+        return;
     }
 
     public postSdkDataWithBaseProperties(
@@ -156,6 +153,8 @@ export class KiteWebAppSdk {
             brandSettings,
             checkout,
             checkoutUserFields,
+            config,
+            footer,
             referenceId,
         }: LaunchAppBaseConfigInterface,
     ) {
@@ -164,6 +163,8 @@ export class KiteWebAppSdk {
             brandSettings,
             checkout,
             checkoutUserFields,
+            config,
+            footer,
             referenceId,
         };
         const hasAspectFitSet = sdkDataWithBaseConfig.lineItems

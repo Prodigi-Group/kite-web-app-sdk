@@ -20,14 +20,18 @@ export class LaunchFromJsonComponent {
 
     public baseFormData = initBaseFormData();
 
-    public formData = {
-        appStateJSONString: '',
-    };
+    public formData = '';
 
     public launchFromJson() {
-        KiteWebAppSdk.launchFromJSON({
-            ...this.baseFormData,
-            ...this.formData,
-        });
+        if (this.formData) {
+            KiteWebAppSdk.launchFromJSON({
+                ...this.baseFormData,
+                ...JSON.parse(this.formData),
+            });
+        } else {
+            KiteWebAppSdk.launchFromJSON({
+                ...this.baseFormData,
+            });
+        }
     }
 }
