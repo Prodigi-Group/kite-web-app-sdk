@@ -247,6 +247,34 @@ These other options can be used both for the `launchFromJSON` and the
         // Set to automatically opt the user in for marketting
         termsOfService?: boolean;   
     };
+    collectorImages?: [{ // Array of objects containing images that can be loaded onto products
+        dimensions: {
+            width: 100,
+            height: 150,   
+        },
+        id: 'imageId',
+        isUploadComplete: true,
+        thumbnailUrl: 'imageThumbnailUrl',
+        url: 'imageUrl',
+    }],
+    lineItems?: [{ // Array of objects containing images and variant or products to be added to basket on launch
+        designId?: string
+        images: [{
+            filters: null,
+            mirror: false,
+            rotate_degrees: 0,
+            scale: 1,
+            aspect?: 'fit', // Optional Property to aspect fit the image inside specified template
+            tx: 0,
+            ty: 0,
+            url_full: 'image1Url',
+            url_preview: 'image1Preview'
+        }],
+        design_id: 'designId',
+        affiliate_id: 'affiliateId',
+        templateId: 'kiteTemplateId',
+        variantName: 'variantName',
+    }],
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
     referenceId?: string;
