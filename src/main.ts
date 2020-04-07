@@ -151,9 +151,9 @@ export class KiteWebAppSdk {
         {
             baseUrl,
             brandSettings,
-            config,
             checkout,
             checkoutUserFields,
+            config,
             footer,
             referenceId,
         }: LaunchAppBaseConfigInterface,
@@ -161,9 +161,9 @@ export class KiteWebAppSdk {
         const sdkDataWithBaseConfig = {
             ...sdkData,
             brandSettings,
-            config,
             checkout,
             checkoutUserFields,
+            config,
             footer,
             referenceId,
         };
