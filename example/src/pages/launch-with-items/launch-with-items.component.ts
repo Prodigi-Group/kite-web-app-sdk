@@ -43,7 +43,7 @@ export class LaunchWithItemsComponent {
             url: defaultUrl1,
         }],
         lineItems: [{
-            aspect: 'fit',
+            aspect: '',
             id: '1',
             imageUrls: [{
                 urlFull: defaultUrl1,
@@ -53,10 +53,10 @@ export class LaunchWithItemsComponent {
             templateId: 'i8plus_tough_case',
         }, {
             aspect: '',
-            id: '1',
+            id: '2',
             imageUrls: [{
-                urlFull: defaultUrl1,
-                urlPreview: defaultUrl1,
+                urlFull: defaultUrl2,
+                urlPreview: defaultUrl2,
             }],
             options: {
                 color: '',

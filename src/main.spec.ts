@@ -480,9 +480,7 @@ describe('launchFromJSON', () => {
 
         expect(kiteWebAppSdk.postSdkDataWithBaseProperties)
             .toHaveBeenCalledWith(
-                {
-                    appStateJSONString: 'jsonString',
-                },
+                config,
                 config,
             );
     });
