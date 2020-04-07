@@ -143,7 +143,6 @@ export class KiteWebAppSdk {
                 sdkData,
             );
         });
-        return;
     }
 
     public postSdkDataWithBaseProperties(

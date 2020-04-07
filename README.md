@@ -272,6 +272,9 @@ These other options can be used both for the `launchFromJSON` and the
         affiliate_id: 'affiliateId',
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
+        options?: {
+            color: string 
+        }
     }],
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
