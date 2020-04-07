@@ -87,7 +87,6 @@ KiteWebAppSdk.launchWithItemsAndImages({
             url_full: 'image1Url',
             url_preview: 'image1Preview'
         }],
-        design_id: 'designId',
         affiliate_id: 'affiliateId',
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
@@ -270,7 +269,6 @@ These other options can be used both for the `launchFromJSON` and the
             url_full: 'image1Url',
             url_preview: 'image1Preview'
         }],
-        design_id: 'designId',
         affiliate_id: 'affiliateId',
         templateId: 'kiteTemplateId',
         variantName: 'variantName',
