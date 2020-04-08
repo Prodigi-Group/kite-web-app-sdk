@@ -133,9 +133,6 @@ export class KiteWebAppSdk {
         this.lineItemsToProcess = (sdkData.lineItems).length;
         this.lineItemsProcessed = 0;
         (sdkData.lineItems).forEach((lineItem) => {
-            if (!lineItem.id) {
-                lineItem.id = UUID.UUID();
-            }
             this.processScaleAndPost(
                 lineItem.images[0],
                 lineItem.templateId,
@@ -143,6 +140,16 @@ export class KiteWebAppSdk {
                 sdkData,
             );
         });
+    }
+
+    public checkAndSetLineItemIds(sdkData) {
+        if (sdkData.lineItems) {
+            (sdkData.lineItems).forEach((lineItem) => {
+                if (!lineItem.id) {
+                    lineItem.id = UUID.UUID();
+                }
+            });
+        }
     }
 
     public postSdkDataWithBaseProperties(
@@ -166,6 +173,7 @@ export class KiteWebAppSdk {
             footer,
             referenceId,
         };
+        this.checkAndSetLineItemIds(sdkDataWithBaseConfig);
         const hasAspectFitSet = sdkDataWithBaseConfig.lineItems
             && sdkDataWithBaseConfig.lineItems
                 .some((el) => el.images[0].hasOwnProperty('aspect') && el.images[0]['aspect'] === 'fit');
