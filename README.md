@@ -248,30 +248,31 @@ These other options can be used both for the `launchFromJSON` and the
     };
     collectorImages?: [{ // Array of objects containing images that can be loaded onto products
         dimensions: {
-            width: 100,
-            height: 150,   
+            width: number,
+            height: number,   
         },
-        id: 'imageId',
-        isUploadComplete: true,
-        thumbnailUrl: 'imageThumbnailUrl',
-        url: 'imageUrl',
+        id: string,
+        isUploadComplete: boolean,
+        thumbnailUrl: string,
+        url: string,
     }],
     lineItems?: [{ // Array of objects defining images and variants of products to be added to basket on launch
         designId?: string
         images: [{
-            filters: null,
-            mirror: false,
-            rotate_degrees: 0,
-            scale: 1,
-            aspect?: 'fit', // Optional Property to aspect fit the image inside specified template
-            tx: 0,
-            ty: 0,
-            url_full: 'image1Url',
-            url_preview: 'image1Preview'
+            filters: string,
+            mirror: boolean,
+            rotate_degrees: number,
+            scale: number,
+            aspect?: string, // Optional Property to aspect fit the image inside specified template
+            tx: number,
+            ty: number,
+            url_full: string,
+            url_preview: string
         }],
-        affiliate_id: 'affiliateId',
-        templateId: 'kiteTemplateId',
-        variantName: 'variantName',
+        id: string,
+        affiliate_id?: string,
+        templateId: string,
+        variantName: string,
         options?: {
             color: string 
         }
