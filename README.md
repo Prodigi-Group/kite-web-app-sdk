@@ -206,6 +206,11 @@ These other options can be used both for the `launchFromJSON` and the
         universalAnalyticsToken?: string; // GA Token for tracking
         userUploadsAllowed?: boolean; // Set whether the user can upload own images.
     };
+    breadCrumbs?: [{ // If present adds breadcrumbs separated by chevrons
+        text: string, // Bread crumb text to display
+        url?: string, // URL to redirect to if text is clicked
+        target?: string // URL href target, for example '_blank' for new tab and '_self': for current window
+    }]
     config?: {
         startInNewTab?: boolean; // Set to `true` to have UI open in new tab.
         returnToUrl?: string; // If set, UI will display a button to enable users to return to the URL specified. Suitable for partners wishing to have users able to return to their own websites.
