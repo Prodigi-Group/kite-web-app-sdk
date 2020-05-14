@@ -8,6 +8,7 @@ import {
 } from '@kite-tech/checkout-sdk';
 
 import {
+    BreadCrumbInterface,
     ConfigInterface,
     LineItemInterface,
     PostedCheckoutDataInterface,
@@ -17,6 +18,7 @@ import {
 export interface KiteWebAppSdkPostedDataInterface {
     appStateJSONString?: string;
     brandSettings?: BrandSettingsInterface;
+    breadCrumbs?: BreadCrumbInterface[];
     config?: ConfigInterface;
     checkout?: PostedCheckoutDataInterface;
     checkoutUserFields?: CheckoutFieldsInterface;

@@ -206,6 +206,11 @@ These other options can be used both for the `launchFromJSON` and the
         universalAnalyticsToken?: string; // GA Token for tracking
         userUploadsAllowed?: boolean; // Set whether the user can upload own images.
     };
+    breadCrumbs?: [{ // If present adds breadcrumbs separated by chevrons
+        text: string, // Bread crumb text to display
+        url?: string, // URL to redirect to if text is clicked
+        target?: string // URL href target, for example '_blank' for new tab and '_self': for current window
+    }]
     config?: {
         startInNewTab?: boolean; // Set to `true` to have UI open in new tab.
         returnToUrl?: string; // If set, UI will display a button to enable users to return to the URL specified. Suitable for partners wishing to have users able to return to their own websites.
@@ -248,30 +253,31 @@ These other options can be used both for the `launchFromJSON` and the
     };
     collectorImages?: [{ // Array of objects containing images that can be loaded onto products
         dimensions: {
-            width: 100,
-            height: 150,   
+            width: number,
+            height: number,   
         },
-        id: 'imageId',
-        isUploadComplete: true,
-        thumbnailUrl: 'imageThumbnailUrl',
-        url: 'imageUrl',
+        id: string,
+        isUploadComplete: boolean,
+        thumbnailUrl: string,
+        url: string,
     }],
     lineItems?: [{ // Array of objects defining images and variants of products to be added to basket on launch
         designId?: string
         images: [{
-            filters: null,
-            mirror: false,
-            rotate_degrees: 0,
-            scale: 1,
-            aspect?: 'fit', // Optional Property to aspect fit the image inside specified template
-            tx: 0,
-            ty: 0,
-            url_full: 'image1Url',
-            url_preview: 'image1Preview'
+            filters: string,
+            mirror: boolean,
+            rotate_degrees: number,
+            scale: number,
+            aspect?: string, // Optional Property to aspect fit the image inside specified template
+            tx: number,
+            ty: number,
+            url_full: string,
+            url_preview: string
         }],
-        affiliate_id: 'affiliateId',
-        templateId: 'kiteTemplateId',
-        variantName: 'variantName',
+        id: string,
+        affiliate_id?: string,
+        templateId: string,
+        variantName: string,
         options?: {
             color: string 
         }
