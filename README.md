@@ -194,7 +194,7 @@ These other options can be used both for the `launchFromJSON` and the
 
 ```typescript
 {
-    baseUrl: string;
+    baseUrl: string,
     brandSettings?: {
         brandColor?: string; // Color to be used on the checkout
         brandName?: string; // Brand name to get branch info
@@ -205,12 +205,12 @@ These other options can be used both for the `launchFromJSON` and the
         testPublishableKey: string; // Kite partner public key for testing
         universalAnalyticsToken?: string; // GA Token for tracking
         userUploadsAllowed?: boolean; // Set whether the user can upload own images.
-    };
+    },
     breadCrumbs?: [{ // If present adds breadcrumbs separated by chevrons
         text: string, // Bread crumb text to display
         url?: string, // URL to redirect to if text is clicked
         target?: string // URL href target, for example '_blank' for new tab and '_self': for current window
-    }]
+    }],
     config?: {
         startInNewTab?: boolean; // Set to `true` to have UI open in new tab.
         returnToUrl?: string; // If set, UI will display a button to enable users to return to the URL specified. Suitable for partners wishing to have users able to return to their own websites.
@@ -233,7 +233,7 @@ These other options can be used both for the `launchFromJSON` and the
         }>;
         // User gets redirected to this URL when completing the checkout
         successRedirectUrl?: string;
-    };
+    },
     checkoutUserFields?: {
         shippingAddress?: {
             // Prepopulated details when the user gets to the checkout
@@ -250,7 +250,7 @@ These other options can be used both for the `launchFromJSON` and the
         customerEmail?: string;
         // Set to automatically opt the user in for marketting
         termsOfService?: boolean;   
-    };
+    },
     collectorImages?: [{ // Array of objects containing images that can be loaded onto products
         dimensions: {
             width: number,
@@ -284,7 +284,7 @@ These other options can be used both for the `launchFromJSON` and the
     }],
      // Reference Id for the customers order. Used by things like the checkout
      // callbacks to inform which user it is.
-    referenceId?: string;
+    referenceId?: string,
     // Custom content to include in the footer. Allows for an array of
     // links.
     footer?: {
@@ -302,6 +302,6 @@ These other options can be used both for the `launchFromJSON` and the
                 newFrame: boolean;              
             }
         ]
-    };
+    }
 }
 ```
