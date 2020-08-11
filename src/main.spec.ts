@@ -532,181 +532,74 @@ describe('postSdkDataWithBaseProperties', () => {
 });
 
 describe('postData', () => {
-    const nestedData = JSON.stringify({ data: 'data' });
-    const data = JSON.stringify({ appStateJSONString: nestedData });
-
-    const initPostData = () => {
-        const window = {
-            document: {
-                body: {},
-            },
-        } as Window;
-        const form = {} as HTMLFormElement;
-        form.setAttribute = jest.fn();
-        form.appendChild = jest.fn();
-        form.submit = jest.fn();
-        const input = {} as HTMLInputElement;
-        input.setAttribute = jest.fn();
-        window.document.createElement = jest.fn()
-            .mockReturnValueOnce(form)
-            .mockReturnValueOnce(input);
-        window.document.body.appendChild = jest.fn();
-        const kiteWebAppSdk = initKiteWebAppSdk(
-            window,
-        );
-
-        return {
-            form,
-            input,
-            kiteWebAppSdk,
-            window,
-        };
+    window.open = jest.fn();
+    const mockSuccessResponse = {
+        id: 'postedDataId',
     };
+    const mockJsonPromise = Promise.resolve(mockSuccessResponse);
+    const mockFetchPromise = Promise.resolve({
+        json: () => mockJsonPromise,
+    });
+    global['fetch'] = jest.fn().mockImplementation(() => mockFetchPromise);
 
-    test('Creates a form on the document', () => {
-        const {
-            kiteWebAppSdk,
-            window,
-        } = initPostData();
+    test('Posts launch data to backend', () => {
+        const kiteWebAppSdk = initKiteWebAppSdk(window);
+        const testPath = 'testPath';
+        const testData = JSON.stringify({});
+        kiteWebAppSdk.postData(testPath, testData);
 
-        kiteWebAppSdk.postData('test', data);
-
-        expect(window.document.createElement).toHaveBeenCalledWith('form');
+        expect(global['fetch']).toHaveBeenCalledTimes(1);
+        expect(global['fetch']).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/todos/2');
     });
 
-    test('Sets the form method to post', () => {
-        const {
-            form,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(form.setAttribute).toHaveBeenCalledWith('method', 'post');
-    });
-
-    test('Sets the form action to the supplied path', () => {
-        const {
-            form,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(form.setAttribute).toHaveBeenCalledWith('action', 'test');
-    });
-
-    test('Sets the form charset to utf-8', () => {
-        const {
-            form,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(form.acceptCharset).toBe('utf-8');
-    });
-
-    test('Creates an input element on the document', () => {
-        const {
-            kiteWebAppSdk,
-            window,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(window.document.createElement)
-            .toHaveBeenCalledWith('input');
-    });
-
-    test('Sets the input type to hidden', () => {
-        const {
-            input,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(input.setAttribute).toHaveBeenCalledWith('type', 'hidden');
-    });
-
-    test('Sets the input name to data', () => {
-        const {
-            input,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(input.setAttribute).toHaveBeenCalledWith('name', 'data');
-    });
-
-    test('Sets the input value to the jsonData', () => {
-        const {
-            input,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(input.setAttribute).toHaveBeenCalledWith('value', data);
-    });
-
-    test('Appends the input to the form', () => {
-        const {
-            form,
-            input,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(form.appendChild).toHaveBeenCalledWith(input);
-    });
-
-    test('Sets `target` attribute to have UI open in new tab if set.', () => {
-        // noinspection JSUnusedLocalSymbols
-        const {
-            form,
-            input,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        const jsonData = JSON.stringify(
-            {
-                config: {
-                    startInNewTab: true,
-                },
+    test('Calls launch function with correct path, postedDataId and startInNewTab boolean', (done) => {
+        const kiteWebAppSdk = initKiteWebAppSdk(window);
+        const testPath = 'testPath';
+        const testData = JSON.stringify({
+            config: {
+                startInNewTab: false,
             },
-        );
-        const spy = jest.spyOn(form, 'setAttribute');
+        });
+        const startInNewTab = JSON.parse(testData).config.startInNewTab;
+        kiteWebAppSdk.postData(testPath, testData);
 
-        kiteWebAppSdk.postData('test', jsonData);
+        const spy = jest.spyOn(kiteWebAppSdk, 'launchWithPostedData');
+        fetch('postedDataId').then((res) => res.json())
+            .then((postedDataId) => {
+                expect(spy).toHaveBeenCalledWith(testPath, postedDataId.id, startInNewTab);
+                done();
+            });
+    });
+});
 
-        expect(spy).toHaveBeenCalledTimes(3);
-        expect(spy.mock.calls[2]).toEqual(['target', '_blank']);
+describe('launchWithPostedData', () => {
+    window.open = jest.fn();
+
+    test('Correctly handles launching URLs with hash', () => {
+        const kiteWebAppSdk = initKiteWebAppSdk(window);
+        const mockPostedDataId = 'postedDataId';
+        const mockUrlPassedByUser = 'http://example.com/#/test';
+        const mockFinalUrl = `http://example.com/?postedData=${mockPostedDataId}#/test`;
+        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
+        expect(window.open).toBeCalledWith(mockFinalUrl, '_self');
     });
 
-    test('Appends the form to the document body', () => {
-        const {
-            form,
-            kiteWebAppSdk,
-            window,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(window.document.body.appendChild).toHaveBeenCalledWith(form);
+    test('Correctly handles launching URLs without hash', () => {
+        const kiteWebAppSdk = initKiteWebAppSdk(window);
+        const mockPostedDataId = 'postedDataId';
+        const mockUrlPassedByUser = 'http://example.com/test';
+        const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;
+        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
+        expect(window.open).toBeCalledWith(mockFinalUrl, '_self');
     });
 
-    test('Submits the form', () => {
-        const {
-            form,
-            kiteWebAppSdk,
-        } = initPostData();
-
-        kiteWebAppSdk.postData('test', data);
-
-        expect(form.submit).toHaveBeenCalled();
+    test('Launches print-shop in a new tab if startInNewTab config is true', () => {
+        const kiteWebAppSdk = initKiteWebAppSdk(window);
+        const mockPostedDataId = 'postedDataId';
+        const startInNewTab = true;
+        const mockUrlPassedByUser = 'http://example.com/test';
+        const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;
+        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, startInNewTab);
+        expect(window.open).toBeCalledWith(mockFinalUrl, '_blank');
     });
 });

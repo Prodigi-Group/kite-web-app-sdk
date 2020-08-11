@@ -191,27 +191,43 @@ export class KiteWebAppSdk {
         path: string,
         jsonData: string,
     ) {
-        const document = this._window.document;
-        const form = document.createElement('form');
-        form.setAttribute('method', 'post');
-        form.setAttribute('action', path);
+        const parsedData = JSON.parse(jsonData);
+        const shouldStartInNewTab =
+            (parsedData.hasOwnProperty('config') &&
+            parsedData.config.startInNewTab) ? true : false;
 
-        const parsedJson = JSON.parse(jsonData);
+        // TODO: Post data to print-engine and get postedDataId here
+        fetch('https://jsonplaceholder.typicode.com/todos/2')
+            .then((response) => response.json())
+            .then((postedDataId) => {
+                // TODO: Change postedDataId passed on integrating with print-engine
+                this.launchWithPostedData(path, postedDataId.id, shouldStartInNewTab);
+            })
+            .catch((err) => {
+                throw new Error(err);
+            });
 
-        if (parsedJson.hasOwnProperty('config') && parsedJson.config.startInNewTab) {
-            form.setAttribute('target', '_blank');
+    }
+
+    public launchWithPostedData(
+        path: string,
+        postedDataId: string,
+        startInNewTab: boolean,
+    ) {
+        const splitPathByHash = path.split('#');
+        const pathBeforeHash = splitPathByHash[0];
+        const pathAfterHash = splitPathByHash[1];
+        const pathWithPostedData = pathBeforeHash + '?postedData=' + postedDataId;
+
+        let goToUrl = pathWithPostedData;
+        if (pathAfterHash) {
+            goToUrl += '#' + pathAfterHash;
         }
 
-        form.acceptCharset = 'utf-8';
-
-        const hiddenField = document.createElement('input');
-        hiddenField.setAttribute('type', 'hidden');
-        hiddenField.setAttribute('name', 'data');
-        hiddenField.setAttribute('value', jsonData);
-
-        form.appendChild(hiddenField);
-
-        document.body.appendChild(form);
-        form.submit();
+        if (startInNewTab) {
+            window.open(goToUrl, '_blank');
+        } else {
+            window.open(goToUrl, '_self');
+        }
     }
 }
