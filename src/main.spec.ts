@@ -1,4 +1,5 @@
 const mockUUID = 'testUUID';
+const PRINT_ENGINE_URL = 'https://print-engine.herokuapp.com';
 jest.mock('angular2-uuid', () => ({
     UUID: {
         UUID: () => mockUUID,
@@ -549,7 +550,10 @@ describe('postData', () => {
         kiteWebAppSdk.postData(testPath, testData);
 
         expect(global['fetch']).toHaveBeenCalledTimes(1);
-        expect(global['fetch']).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/todos/2');
+        expect(global['fetch']).toHaveBeenCalledWith(PRINT_ENGINE_URL + '/post-data/', {
+            method: 'POST',
+            body: testData
+        });
     });
 
     test('Calls launch function with correct path, postedDataId and startInNewTab boolean', (done) => {
@@ -566,7 +570,7 @@ describe('postData', () => {
         const spy = jest.spyOn(kiteWebAppSdk, 'launchWithPostedData');
         fetch('postedDataId').then((res) => res.json())
             .then((postedDataId) => {
-                expect(spy).toHaveBeenCalledWith(testPath, postedDataId.id, startInNewTab);
+                expect(spy).toHaveBeenCalledWith(testPath, postedDataId, startInNewTab);
                 done();
             });
     });
@@ -574,28 +578,27 @@ describe('postData', () => {
 
 describe('launchWithPostedData', () => {
     window.open = jest.fn();
+    window.location.assign = jest.fn();
+    const mockPostedDataId = 'postedDataId';
 
     test('Correctly handles launching URLs with hash', () => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
-        const mockPostedDataId = 'postedDataId';
         const mockUrlPassedByUser = 'http://example.com/#/test';
         const mockFinalUrl = `http://example.com/?postedData=${mockPostedDataId}#/test`;
         kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
-        expect(window.open).toBeCalledWith(mockFinalUrl, '_self');
+        expect(window.location.assign).toBeCalledWith(mockFinalUrl)
     });
 
     test('Correctly handles launching URLs without hash', () => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
-        const mockPostedDataId = 'postedDataId';
         const mockUrlPassedByUser = 'http://example.com/test';
         const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;
         kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
-        expect(window.open).toBeCalledWith(mockFinalUrl, '_self');
+        expect(window.location.assign).toBeCalledWith(mockFinalUrl)
     });
 
     test('Launches print-shop in a new tab if startInNewTab config is true', () => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
-        const mockPostedDataId = 'postedDataId';
         const startInNewTab = true;
         const mockUrlPassedByUser = 'http://example.com/test';
         const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;

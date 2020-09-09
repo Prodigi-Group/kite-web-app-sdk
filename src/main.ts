@@ -17,6 +17,7 @@ export class KiteWebAppSdk {
     public lineItemsToProcess: number;
     public lineItemsProcessed: number;
     public productBaseUrl: string = 'https://image.kite.ly/product/';
+    public printEngineBaseUrl: string = 'https://print-engine.herokuapp.com';
 
     constructor(
         private _window: Window,
@@ -196,12 +197,13 @@ export class KiteWebAppSdk {
             (parsedData.hasOwnProperty('config') &&
             parsedData.config.startInNewTab) ? true : false;
 
-        // TODO: Post data to print-engine and get postedDataId here
-        fetch('https://jsonplaceholder.typicode.com/todos/2')
+        fetch(this.printEngineBaseUrl + '/post-data/', {
+            method: 'POST',
+            body: jsonData
+        })
             .then((response) => response.json())
             .then((postedDataId) => {
-                // TODO: Change postedDataId passed on integrating with print-engine
-                this.launchWithPostedData(path, postedDataId.id, shouldStartInNewTab);
+                this.launchWithPostedData(path, postedDataId, shouldStartInNewTab);
             })
             .catch((err) => {
                 throw new Error(err);
@@ -227,7 +229,7 @@ export class KiteWebAppSdk {
         if (startInNewTab) {
             window.open(goToUrl, '_blank');
         } else {
-            window.open(goToUrl, '_self');
+            window.location.assign(goToUrl)
         }
     }
 }
