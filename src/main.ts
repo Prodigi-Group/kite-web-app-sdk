@@ -198,8 +198,8 @@ export class KiteWebAppSdk {
             parsedData.config.startInNewTab) ? true : false;
 
         fetch(this.printEngineBaseUrl + '/post-data/', {
+            body: jsonData,
             method: 'POST',
-            body: jsonData
         })
             .then((response) => response.json())
             .then((postedDataId) => {
@@ -229,7 +229,7 @@ export class KiteWebAppSdk {
         if (startInNewTab) {
             window.open(goToUrl, '_blank');
         } else {
-            window.location.assign(goToUrl)
+            window.location.assign(goToUrl);
         }
     }
 }

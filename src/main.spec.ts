@@ -551,8 +551,8 @@ describe('postData', () => {
 
         expect(global['fetch']).toHaveBeenCalledTimes(1);
         expect(global['fetch']).toHaveBeenCalledWith(PRINT_ENGINE_URL + '/post-data/', {
+            body: testData,
             method: 'POST',
-            body: testData
         });
     });
 
@@ -586,7 +586,7 @@ describe('launchWithPostedData', () => {
         const mockUrlPassedByUser = 'http://example.com/#/test';
         const mockFinalUrl = `http://example.com/?postedData=${mockPostedDataId}#/test`;
         kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
-        expect(window.location.assign).toBeCalledWith(mockFinalUrl)
+        expect(window.location.assign).toBeCalledWith(mockFinalUrl);
     });
 
     test('Correctly handles launching URLs without hash', () => {
@@ -594,7 +594,7 @@ describe('launchWithPostedData', () => {
         const mockUrlPassedByUser = 'http://example.com/test';
         const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;
         kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
-        expect(window.location.assign).toBeCalledWith(mockFinalUrl)
+        expect(window.location.assign).toBeCalledWith(mockFinalUrl);
     });
 
     test('Launches print-shop in a new tab if startInNewTab config is true', () => {
