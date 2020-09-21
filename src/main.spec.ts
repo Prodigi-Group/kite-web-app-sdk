@@ -556,7 +556,7 @@ describe('postData', () => {
         });
     });
 
-    test('Calls launch function with correct path, postedDataId and startInNewTab boolean', (done) => {
+    test('Calls launch function with correct path, postedDataId', (done) => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
         const testPath = 'testPath';
         const testData = JSON.stringify({
@@ -564,45 +564,64 @@ describe('postData', () => {
                 startInNewTab: false,
             },
         });
-        const startInNewTab = JSON.parse(testData).config.startInNewTab;
         kiteWebAppSdk.postData(testPath, testData);
 
         const spy = jest.spyOn(kiteWebAppSdk, 'launchWithPostedData');
         fetch('postedDataId').then((res) => res.json())
             .then((postedDataId) => {
-                expect(spy).toHaveBeenCalledWith(testPath, postedDataId, startInNewTab);
+                expect(spy).toHaveBeenCalledWith(testPath, postedDataId, undefined);
+                done();
+            });
+    });
+
+    test('Calls launch function with correct path, postedDataId and window reference if startInNewTab config is true', (done) => {
+        const kiteWebAppSdk = initKiteWebAppSdk(window);
+        const testPath = 'testPath';
+        const testData = JSON.stringify({
+            config: {
+                startInNewTab: true,
+            },
+        });
+        const newWindow = window.open();
+        kiteWebAppSdk.postData(testPath, testData);
+
+        const spy = jest.spyOn(kiteWebAppSdk, 'launchWithPostedData');
+        fetch('postedDataId').then((res) => res.json())
+            .then((postedDataId) => {
+                expect(spy).toHaveBeenCalledWith(testPath, postedDataId, newWindow);
                 done();
             });
     });
 });
 
 describe('launchWithPostedData', () => {
-    window.open = jest.fn();
+    window.focus = jest.fn();
     window.location.assign = jest.fn();
     const mockPostedDataId = 'postedDataId';
 
     test('Correctly handles launching URLs with hash', () => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
         const mockUrlPassedByUser = 'http://example.com/#/test';
-        const mockFinalUrl = `http://example.com/?postedData=${mockPostedDataId}#/test`;
-        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
+        const mockFinalUrl = `http://example.com/?postedDataId=${mockPostedDataId}#/test`;
+        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId);
         expect(window.location.assign).toBeCalledWith(mockFinalUrl);
     });
 
     test('Correctly handles launching URLs without hash', () => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
         const mockUrlPassedByUser = 'http://example.com/test';
-        const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;
-        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, false);
+        const mockFinalUrl = `http://example.com/test?postedDataId=${mockPostedDataId}`;
+        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId);
         expect(window.location.assign).toBeCalledWith(mockFinalUrl);
     });
 
     test('Launches print-shop in a new tab if startInNewTab config is true', () => {
         const kiteWebAppSdk = initKiteWebAppSdk(window);
-        const startInNewTab = true;
+        const newWindow = window;
         const mockUrlPassedByUser = 'http://example.com/test';
-        const mockFinalUrl = `http://example.com/test?postedData=${mockPostedDataId}`;
-        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, startInNewTab);
-        expect(window.open).toBeCalledWith(mockFinalUrl, '_blank');
+        const mockFinalUrl = `http://example.com/test?postedDataId=${mockPostedDataId}`;
+        kiteWebAppSdk.launchWithPostedData(mockUrlPassedByUser, mockPostedDataId, newWindow);
+        expect(newWindow.location.assign).toBeCalledWith(mockFinalUrl);
+        expect(newWindow.focus).toBeCalled();
     });
 });

@@ -196,6 +196,10 @@ export class KiteWebAppSdk {
         const shouldStartInNewTab =
             (parsedData.hasOwnProperty('config') &&
             parsedData.config.startInNewTab) ? true : false;
+        let newWindow;
+        if (shouldStartInNewTab) {
+            newWindow = window.open('', '_blank');
+        }
 
         fetch(this.printEngineBaseUrl + '/post-data/', {
             body: jsonData,
@@ -203,9 +207,12 @@ export class KiteWebAppSdk {
         })
             .then((response) => response.json())
             .then((postedDataId) => {
-                this.launchWithPostedData(path, postedDataId, shouldStartInNewTab);
+                this.launchWithPostedData(path, postedDataId, newWindow);
             })
             .catch((err) => {
+                if (newWindow) {
+                    newWindow.close();
+                }
                 throw new Error(err);
             });
 
@@ -214,20 +221,21 @@ export class KiteWebAppSdk {
     public launchWithPostedData(
         path: string,
         postedDataId: string,
-        startInNewTab: boolean,
+        newWindow?: WindowProxy,
     ) {
         const splitPathByHash = path.split('#');
         const pathBeforeHash = splitPathByHash[0];
         const pathAfterHash = splitPathByHash[1];
-        const pathWithPostedData = pathBeforeHash + '?postedData=' + postedDataId;
+        const pathWithPostedData = pathBeforeHash + '?postedDataId=' + postedDataId;
 
         let goToUrl = pathWithPostedData;
         if (pathAfterHash) {
             goToUrl += '#' + pathAfterHash;
         }
 
-        if (startInNewTab) {
-            window.open(goToUrl, '_blank');
+        if (newWindow) {
+            newWindow.location.assign(goToUrl);
+            newWindow.focus();
         } else {
             window.location.assign(goToUrl);
         }
