@@ -540,6 +540,7 @@ describe('postData', () => {
     const mockJsonPromise = Promise.resolve(mockSuccessResponse);
     const mockFetchPromise = Promise.resolve({
         json: () => mockJsonPromise,
+        ok: true,
     });
     global['fetch'] = jest.fn().mockImplementation(() => mockFetchPromise);
 

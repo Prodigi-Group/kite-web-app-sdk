@@ -4,3 +4,7 @@ export { LaunchAppWithItemsInterface } from './launch-app-with-items.interface';
 export { ConfigInterface } from './config.interface';
 export { FooterInterface } from './footer.interface';
 export { BreadCrumbInterface } from './breadCrumb.interface';
+export { DimensionsInterface } from './dimensions.interface';
+export { CollectorImageInterface } from './collector-image.interface';
+export { LineItemInterface } from './line-item.interface';
+export { BrandSettingsInterface } from './brand-settings.interface';
