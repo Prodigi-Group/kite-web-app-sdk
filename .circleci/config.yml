@@ -137,11 +137,11 @@ workflows:
       #     filters:
       #       branches:
       #         ignore: gh-pages
-      - release:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - bundle
+      # - release:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      #     requires:
+      #       - bundle
             # - bundle-example
