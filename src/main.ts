@@ -13,7 +13,7 @@ export class KiteWebAppSdk {
     private lineItemsToProcess: number;
     private lineItemsProcessed: number;
     private productBaseUrl: string = 'https://image.kite.ly/product/';
-    private printEngineBaseUrl: string = 'https://print-engine.herokuapp.com';
+    private printEngineBaseUrl: string = 'https://print-engine.prodigi.com';
 
     constructor(
         private _window: Window,
