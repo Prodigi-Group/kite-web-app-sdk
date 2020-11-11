@@ -1,22 +1,19 @@
 import {
+    CollectorImageInterface,
+    DimensionsInterface,
     KiteWebAppSdkPostedDataInterface,
     LaunchAppBaseConfigInterface,
-    LaunchAppFromJSONInterface,
     LaunchAppWithItemsInterface,
     LineItemInterface,
 } from './models/index';
 
-import {
-    CollectorImageInterface,
-    DimensionsInterface,
-} from '@kite-tech/components';
-
 import { UUID } from 'angular2-uuid';
 
 export class KiteWebAppSdk {
-    public lineItemsToProcess: number;
-    public lineItemsProcessed: number;
-    public productBaseUrl: string = 'https://image.kite.ly/product/';
+    private lineItemsToProcess: number;
+    private lineItemsProcessed: number;
+    private productBaseUrl: string = 'https://image.kite.ly/product/';
+    private printEngineBaseUrl: string = 'https://print-engine.herokuapp.com';
 
     constructor(
         private _window: Window,
@@ -82,14 +79,14 @@ export class KiteWebAppSdk {
         );
     }
 
-    public launchFromJSON(config: any) {
+    public launchFromJSON(config: LaunchAppWithItemsInterface) {
         this.postSdkDataWithBaseProperties(
             config,
             config,
         );
     }
 
-    public calculateAndSetNewScale(product, imageObject, imageWidth, imageHeight) {
+    private calculateAndSetNewScale(product, imageObject, imageWidth, imageHeight) {
         const fitWidth = product.images[0].asset_size.width;
         const fitHeight = product.images[0].asset_size.height;
 
@@ -102,7 +99,7 @@ export class KiteWebAppSdk {
         delete imageObject.aspect;
     }
 
-    public processScaleAndPost(image, templateId, baseUrl, sdkData) {
+    private processScaleAndPost(image, templateId, baseUrl, sdkData) {
         const img = new Image();
         img.src = image.url_preview;
         img.onload = () => {
@@ -129,7 +126,7 @@ export class KiteWebAppSdk {
         };
     }
 
-    public processLineItems(baseUrl, sdkData) {
+    private processLineItems(baseUrl, sdkData) {
         this.lineItemsToProcess = (sdkData.lineItems).length;
         this.lineItemsProcessed = 0;
         (sdkData.lineItems).forEach((lineItem) => {
@@ -142,7 +139,7 @@ export class KiteWebAppSdk {
         });
     }
 
-    public checkAndSetLineItemIds(sdkData) {
+    private checkAndSetLineItemIds(sdkData) {
         if (sdkData.lineItems) {
             (sdkData.lineItems).forEach((lineItem) => {
                 if (!lineItem.id) {
@@ -152,7 +149,7 @@ export class KiteWebAppSdk {
         }
     }
 
-    public postSdkDataWithBaseProperties(
+    private postSdkDataWithBaseProperties(
         sdkData: KiteWebAppSdkPostedDataInterface,
         {
             baseUrl,
@@ -187,31 +184,61 @@ export class KiteWebAppSdk {
         }
     }
 
-    public postData(
+    private postData(
         path: string,
         jsonData: string,
     ) {
-        const document = this._window.document;
-        const form = document.createElement('form');
-        form.setAttribute('method', 'post');
-        form.setAttribute('action', path);
-
-        const parsedJson = JSON.parse(jsonData);
-
-        if (parsedJson.hasOwnProperty('config') && parsedJson.config.startInNewTab) {
-            form.setAttribute('target', '_blank');
+        const parsedData = JSON.parse(jsonData);
+        const shouldStartInNewTab =
+            (parsedData.hasOwnProperty('config') &&
+            parsedData.config.startInNewTab) ? true : false;
+        let newWindow;
+        if (shouldStartInNewTab) {
+            newWindow = window.open('', '_blank');
         }
 
-        form.acceptCharset = 'utf-8';
+        fetch(this.printEngineBaseUrl + '/post-data/', {
+            body: jsonData,
+            method: 'POST',
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then((postedDataId) => {
+                this.launchWithPostedData(path, postedDataId, newWindow);
+            })
+            .catch((err) => {
+                if (newWindow) {
+                    newWindow.close();
+                }
+                throw new Error(err);
+            });
 
-        const hiddenField = document.createElement('input');
-        hiddenField.setAttribute('type', 'hidden');
-        hiddenField.setAttribute('name', 'data');
-        hiddenField.setAttribute('value', jsonData);
+    }
 
-        form.appendChild(hiddenField);
+    private launchWithPostedData(
+        path: string,
+        postedDataId: string,
+        newWindow?: WindowProxy,
+    ) {
+        const splitPathByHash = path.split('#');
+        const pathBeforeHash = splitPathByHash[0];
+        const pathAfterHash = splitPathByHash[1];
+        const pathWithPostedData = pathBeforeHash + '?postedDataId=' + postedDataId;
 
-        document.body.appendChild(form);
-        form.submit();
+        let goToUrl = pathWithPostedData;
+        if (pathAfterHash) {
+            goToUrl += '#' + pathAfterHash;
+        }
+
+        if (newWindow) {
+            newWindow.location.assign(goToUrl);
+            newWindow.focus();
+        } else {
+            window.location.assign(goToUrl);
+        }
     }
 }

@@ -1,14 +1,8 @@
 import {
-    LaunchAppBaseConfigInterface,
-} from './index';
-
-import {
-    LineItemInterface,
-} from './../index';
-
-import {
     CollectorImageInterface,
-} from '@kite-tech/components';
+    LaunchAppBaseConfigInterface,
+    LineItemInterface,
+} from './index';
 
 export interface LaunchAppWithItemsInterface
 extends LaunchAppBaseConfigInterface {

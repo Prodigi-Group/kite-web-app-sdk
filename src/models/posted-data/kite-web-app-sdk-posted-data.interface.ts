@@ -1,14 +1,11 @@
 import {
-    BrandSettingsInterface,
-    CollectorImageInterface,
-} from '@kite-tech/components';
-
-import {
     CheckoutFieldsInterface,
 } from '@kite-tech/checkout-sdk';
 
 import {
+    BrandSettingsInterface,
     BreadCrumbInterface,
+    CollectorImageInterface,
     ConfigInterface,
     LineItemInterface,
     PostedCheckoutDataInterface,

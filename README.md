@@ -6,15 +6,8 @@ Included web app:
 - Print Shop
 
 ## Table of Contents
-- [Example](#example)
 - [Installation](#installation)
 - [API](#api)
-
-## Example
-
-To view examples of the various versions of the app as well as access an application that enables a visual method of using the SDK go to:
-
-- [https://prodigi-group.github.io/kite-web-app-sdk/docs/](https://prodigi-group.github.io/kite-web-app-sdk/docs/)
 
 ## Installation
 
@@ -63,7 +56,7 @@ collector images with default values.
 
 ```js
 KiteWebAppSdk.launchWithItemsAndImages({
-    baseUrl: 'http://dev-wall-art.kite.ly/canon/',
+    baseUrl: 'https://shop.prodigi.com/prodigi/',
     collectorImages: [{
         dimensions: {
             width: 100,

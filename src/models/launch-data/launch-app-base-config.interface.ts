@@ -1,4 +1,5 @@
 import {
+    BrandSettingsInterface,
     ConfigInterface,
     PostedCheckoutDataInterface,
 } from './../index';
@@ -6,10 +7,6 @@ import {
 import {
     CheckoutFieldsInterface,
 } from '@kite-tech/checkout-sdk';
-
-import {
-    BrandSettingsInterface,
-} from '@kite-tech/components';
 
 import { FooterInterface } from './footer.interface';
 

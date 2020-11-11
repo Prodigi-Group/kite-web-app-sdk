@@ -38,9 +38,6 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage-report
-      # - run:
-      #     name: Upload coverage
-      #     command: bash <(curl -s https://codecov.io/bash)
 
   lint:
     docker:
@@ -134,12 +131,12 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - bundle-example:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: gh-pages
+      # - bundle-example:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         ignore: gh-pages
       - release:
           filters:
             branches:
@@ -147,4 +144,4 @@ workflows:
                 - master
           requires:
             - bundle
-            - bundle-example
+            # - bundle-example

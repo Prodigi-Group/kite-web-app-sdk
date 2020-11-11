@@ -1,8 +1,4 @@
 export {
-    LineItemInterface,
-} from '@kite-tech/components';
-
-export {
     PostedCheckoutDataInterface,
 } from './posted-checkout-data.interface';
 
