@@ -56,7 +56,7 @@ collector images with default values.
 
 ```js
 KiteWebAppSdk.launchWithItemsAndImages({
-    baseUrl: 'http://dev-wall-art.kite.ly/canon/',
+    baseUrl: 'https://shop.prodigi.com/prodigi/',
     collectorImages: [{
         dimensions: {
             width: 100,
