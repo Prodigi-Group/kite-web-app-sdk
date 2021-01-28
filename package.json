@@ -75,5 +75,11 @@
       "/node_modules/",
       "/example/"
     ]
-  }
+  },
+  "keywords": [
+    "print on demand",
+    "prodigi",
+    "print shop",
+    "sdk"
+  ]
 }
