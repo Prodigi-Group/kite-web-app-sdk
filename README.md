@@ -1,6 +1,6 @@
 # Prodigi Print Shop SDK
 
-Compatible with the [Print on Demand Shop](https://shop.prodigi.com/) by [Prodigi](http://prodigi.com/). Get yours at https://dashboard.prodigi.com/apps
+Compatible with the [Print on Demand Shop](https://shop.prodigi.com/) by [Prodigi](http://prodigi.com/). Get yours at [Prodigi Apps Dashboard](https://dashboard.prodigi.com/apps)
 
 The Print Shop SDK provides an API to launch your app with pre-configured data, such as images, at run-time.
 
