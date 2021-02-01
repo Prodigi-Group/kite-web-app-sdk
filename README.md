@@ -12,7 +12,7 @@ The Print Shop SDK provides an API to launch your app with pre-configured data, 
 
 ## Demo and examples
 
-For a list of common use-cases and a demo sandbox visit: https://prodigi-web-sdks.web.app/print-shop
+For a list of common use-cases and a demo sandbox visit: [https://prodigi-web-sdks.web.app/print-shop](https://prodigi-web-sdks.web.app/print-shop)
 
 ## Installation
 
