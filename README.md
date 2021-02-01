@@ -1,6 +1,6 @@
 # Prodigi Print Shop SDK
 
-Compatible with the [Print on Demand Shop](https://shop.prodigi.com/) by [Prodigi](http://prodigi.com/). Get yours at [Prodigi Apps Dashboard](https://dashboard.prodigi.com/apps)
+Compatible with the [Print on Demand Shop](https://shop.prodigi.com) by [Prodigi](https://www.prodigi.com/). Get yours at [Prodigi Apps Dashboard](https://dashboard.prodigi.com/apps)
 
 The Print Shop SDK provides an API to launch your app with pre-configured data, such as images, at run-time.
 
@@ -12,7 +12,7 @@ The Print Shop SDK provides an API to launch your app with pre-configured data, 
 
 ## Demo and examples
 
-For a list of common use-cases and a demo sandbox visit: https://prodigi-sdk-test.web.app/
+For a list of common use-cases and a demo sandbox visit: https://prodigi-web-sdks.web.app/print-shop
 
 ## Installation
 
@@ -21,12 +21,6 @@ Install using NPM:
 ```
 npm install @kite-tech/web-app-sdk
 ```
-
-<!-- or import using CDN:
-
-```html
-<script src="https://unpkg.com/@kite-tech/web-app-sdk/dist/index.js"></script>
-``` -->
 
 ## Usage
 
@@ -38,7 +32,7 @@ import { KiteWebAppSdk } from '@kite-tech/web-app-sdk';
 Launch your shop using the `launchFromJSON` function and pass in your desired configuration:
 ```js
 const printShopConfig = {
-    baseUrl: 'https://shop.prodigi.com/prodigi/'
+    baseUrl: 'https://shop.prodigi.com/prodigi'
 };
 
 KiteWebAppSdk.launchFromJSON(printShopConfig);
@@ -58,10 +52,10 @@ For all configuration options, see [API](#api)
 
 ### ConfigObject
 
-|      Property | Type    | Required | Description                               |
-|---------------|---------|----------|-------------------------------------------|
-| startInNewTab | boolean | NO       | Opens your shop in a new tab/window       |
-| customer_id   | string  | NO       | Custom identifier associated to your user |
+| Property      | Type    | Required | Description                                           |
+|---------------|---------|----------|-------------------------------------------------------|
+| startInNewTab | boolean | NO       | Opens your shop in a new tab/window. Default is false |
+| customer_id   | string  | NO       | Custom identifier associated to your user             |
 
 <br>
 
@@ -81,7 +75,7 @@ An array of objects having the following properties:
 
 | Property         | Type                                                     | Required | Description                                                           |
 |------------------|----------------------------------------------------------|----------|-----------------------------------------------------------------------|
-| dimensions       | <pre> {<br>   width: number,<br>   height: number,<br> } | YES      | The dimensions of the image URL specified                             |
+| dimensions       | <pre> {<br>   width: number,<br>   height: number<br> }  | YES      | The dimensions of the image URL specified                             |
 | id               | string                                                   | YES      | Unique ID for the image                                               |
 | isUploadComplete | boolean                                                  | YES      | Specify if image upload is complete                                   |
 | thumbnailUrl     | string                                                   | YES      | Lower resolution image URL used for rendering previews in the browser |
