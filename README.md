@@ -1,8 +1,10 @@
 # Prodigi Print Shop SDK
 
-Compatible with the [Print on Demand Shop](https://shop.prodigi.com) by [Prodigi](https://www.prodigi.com/). Get yours at [Prodigi Apps Dashboard](https://dashboard.prodigi.com/apps)
+[Prodigi](https://www.prodigi.com/) offers white label print on demand portals so you can sell to your users under your brand. 
 
-The Print Shop SDK provides an API to launch your app with pre-configured data, such as images, at run-time.
+This SDK is compatible with the Prodigi [Print on Demand Shop](https://shop.prodigi.com). Get your own branded instance at [Prodigi Apps Dashboard](https://dashboard.prodigi.com/apps).
+
+With the Print Shop SDK, you can integrate your print shop app into your own site, launching it with pre-configured data, such as images, at run-time.
 
 ## Table of Contents
 - [Demo and examples](#demo-and-examples)
@@ -37,7 +39,6 @@ const printShopConfig = {
 
 KiteWebAppSdk.launchFromJSON(printShopConfig);
 ```
-For all configuration options, see [API](#api)
 
 ## API
 
