@@ -45,9 +45,9 @@ KiteWebAppSdk.launchFromJSON(printShopConfig);
 | Property           | Type                                                    | Required | Description                                                             |
 |--------------------|---------------------------------------------------------|----------|-------------------------------------------------------------------------|
 | baseUrl            | string                                                  | YES      | The complete URL of your shop                                           |
-| config             | [_ConfigObject_](#ConfigObject)                         | NO       | Specify additional properties while launch                              |
+| config             | [_ConfigObject_](#ConfigObject)                         | NO       | Specify additional properties for launch                                |
 | checkoutUserFields | [_CheckoutUserFieldsObject_](#CheckoutUserFieldsObject) | NO       | User details to populate on checkout                                    |
-| collectorImages    | [_CollectorImagesArray_](#CollectorImagesArray)         | NO       | Images passed on to your shop that can be applied on different products |
+| collectorImages    | [_CollectorImagesArray_](#CollectorImagesArray)         | NO       | Images passed in to your shop that can be applied to different products |
 
 <br>
 
@@ -65,8 +65,8 @@ KiteWebAppSdk.launchFromJSON(printShopConfig);
 | Property        | Type                                                                                                                                                                                                                                            | Required | Description                                                            |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|------------------------------------------------------------------------|
 | shippingAddress | <pre> {<br>   recipient_first_name: string,<br>   recipient_last_name: string,<br>   address_line_1: string,<br>   address_line_2: string,<br>   city: string,<br>   county_state: string,<br>   postcode: string,<br>   country: string,<br> } | NO       | User shipping address to populate on checkout. All values are optional |
-| customerEmail   | string                                                                                                                                                                                                                                          | NO       | Email set for the user when they reach checkout                        |
-| termsOfService  | boolean                                                                                                                                                                                                                                         | NO       | Set to automatically agree to terms of service on checkout             |
+| customerEmail   | string                                                                                                                                                                                                                                          | NO       | Sets the user's email address when they reach the checkout            |
+| termsOfService  | boolean                                                                                                                                                                                                                                         | NO       | Sets whether to automatically agree to terms of service on checkout             |
 
 <br>
 
@@ -78,6 +78,6 @@ An array of objects having the following properties:
 |------------------|----------------------------------------------------------|----------|-----------------------------------------------------------------------|
 | dimensions       | <pre> {<br>   width: number,<br>   height: number<br> }  | YES      | The dimensions of the image URL specified                             |
 | id               | string                                                   | YES      | Unique ID for the image                                               |
-| isUploadComplete | boolean                                                  | YES      | Specify if image upload is complete                                   |
-| thumbnailUrl     | string                                                   | YES      | Lower resolution image URL used for rendering previews in the browser |
-| url              | string                                                   | YES      | Full resolution image URL used for printing                           |
+| isUploadComplete | boolean                                                  | YES      | Specify whether the image upload is complete                          |
+| thumbnailUrl     | string                                                   | YES      | Lower resolution image URL, used for rendering previews in the browser|
+| url              | string                                                   | YES      | Full resolution image URL, used for printing                          |
