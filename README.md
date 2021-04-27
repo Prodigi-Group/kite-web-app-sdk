@@ -14,7 +14,7 @@ With the Print Shop SDK, you can integrate your print shop app into your own sit
 
 ## Demo and examples
 
-For a list of common use-cases and a demo sandbox visit: [https://prodigi-web-sdks.web.app/print-shop](https://prodigi-web-sdks.web.app/print-shop)
+For a list of common use-cases and a demo sandbox visit: [https://sdk.prodigi.com/print-shop](https://sdk.prodigi.com/print-shop)
 
 ## Installation
 
