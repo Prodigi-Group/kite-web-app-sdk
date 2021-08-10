@@ -1,5 +1,5 @@
 const mockUUID = 'testUUID';
-const PRINT_ENGINE_URL = 'https://print-engine.prodigi.com';
+const PRINT_ENGINE_URL = 'https://print-engine.prodigi.com/v1';
 jest.mock('angular2-uuid', () => ({
     UUID: {
         UUID: () => mockUUID,
