@@ -1,8 +1,8 @@
 {
   "name": "@kite-tech/web-app-sdk",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Prodigi print on demand shop SDK",
-  "homepage": "https://prodigi-web-sdks.web.app/print-shop",
+  "homepage": "https://sdk.prodigi.com/print-shop",
   "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
